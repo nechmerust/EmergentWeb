@@ -30,27 +30,33 @@
     <div class="bg-canvas overflow-hidden">
         <div class="section-spacing">
             <div class="border-b border-slate-100 dark:border-slate-800 overflow-hidden relative">
-                <div class="absolute inset-x-0 top-0 z-10">
-                    <div class="px-6 py-6 md:px-8 relative z-10">
-                        <nav class="flex items-center justify-between gap-x-4 md:gap-x-6" aria-label="Global">
-                            <a href="index.html" class="gap-x-3 shrink-0 flex items-center">
-                                <img class="h-16 w-auto" src="img/logo.png" alt="nechmerust logo">
-                                <p class="sr-only text-3xl md:text-4xl !leading-none text-type-900">nechmerust</p>
-                            </a>
-                            <div class="mr-auto shrink-0 gap-x-4 md:gap-x-8 flex">
-                                <a href="index.html" class="text-type-900 nav-item text-sm shrink-0 font-sans font-semibold leading-6 capitalize active-nav-item">Úvod</a>
-                                <a href="about-us.html" class="text-type-900 nav-item text-sm shrink-0 font-sans font-semibold leading-6 capitalize">O Nás</a>
-                                <a href="how-to-support.html" class="text-type-900 nav-item text-sm shrink-0 font-sans font-semibold leading-6 capitalize">Jak nás podpořit</a>
-                                <a href="products.html" class="text-type-900 nav-item text-sm shrink-0 font-sans font-semibold leading-6 capitalize">Produkty</a>
-                                <a href="animals.html" class="text-type-900 nav-item text-sm shrink-0 font-sans font-semibold leading-6 capitalize">Zvířecí obyvatelé</a>
+                <div class="absolute inset-x-0 top-0 z-10 nav-header">
+                    <div class="px-6 py-6 md:px-8 relative z-10 flex items-center justify-between">
+                        <a href="index.html" class="gap-x-3 shrink-0 flex items-center">
+                            <img class="h-16 w-auto" src="img/logo.png" alt="nechmerust logo">
+                            <p class="sr-only text-3xl md:text-4xl !leading-none text-type-900">nechmerust</p>
+                        </a>
+                        <div class="mr-auto shrink-0 gap-x-4 md:gap-x-8 flex navbar-links">
+                            <a href="index.html" class="text-type-900 nav-item text-sm shrink-0 font-sans font-semibold leading-6 capitalize active-nav-item">Úvod</a>
+                            <a href="about-us.html" class="text-type-900 nav-item text-sm shrink-0 font-sans font-semibold leading-6 capitalize">O Nás</a>
+                            <a href="how-to-support.html" class="text-type-900 nav-item text-sm shrink-0 font-sans font-semibold leading-6 capitalize">Jak nás podpořit</a>
+                            <a href="products.html" class="text-type-900 nav-item text-sm shrink-0 font-sans font-semibold leading-6 capitalize">Produkty</a>
+                            <a href="animals.html" class="text-type-900 nav-item text-sm shrink-0 font-sans font-semibold leading-6 capitalize">Zvířecí obyvatelé</a>
+                        </div>
+                        
+                        <div class="flex font-sans items-center space-x-2 mobile-menu-wrapper">
+                            <button type="button" class="mobile-menu-button -m-2.5 inline-flex items-center justify-center rounded-md p-2.5">
+                                <span class="sr-only">Open main menu</span>
+                                <svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20" class="h-6 w-6" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"></path></svg>
+                            </button>
+                            <div class="mobile-menu-content">
+                                <a href="index.html" class="nav-item active-nav-item">Úvod</a>
+                                <a href="about-us.html" class="nav-item">O Nás</a>
+                                <a href="how-to-support.html" class="nav-item">Jak nás podpořit</a>
+                                <a href="products.html" class="nav-item">Produkty</a>
+                                <a href="animals.html" class="nav-item">Zvířecí obyvatelé</a>
                             </div>
-                            <div class="flex font-sans items-center space-x-2">
-                                <button type="button" class="hidden text-type-900 -m-2.5 inline-flex items-center justify-center rounded-md p-2.5">
-                                    <span class="sr-only">Open main menu</span>
-                                    <svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20" class="h-6 w-6" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"></path></svg>
-                                </button>
-                            </div>
-                        </nav>
+                        </div>
                     </div>
                 </div>
                 <div class="relative isolate px-6 pt-14 lg:px-8">
@@ -126,5 +132,17 @@
             </div>
         </footer>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu-wrapper');
+
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('is-active');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
