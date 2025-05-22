@@ -298,10 +298,155 @@ footer {
     color: #1a9e6b; /* Mírně tmavší zelená pro hover */
 }
 
-
 /* Styling for active navigation item */
 .nav-item.active-nav-item {
     color: var(--color-primary); /* Zvýrazní aktivní odkaz primární barvou */
-    /* Můžeš přidat i podtržení, pokud chceš: */
     /* border-bottom: 2px solid var(--color-primary); */
+}
+
+/* --- Nové a upravené styly pro tuto iteraci --- */
+
+/* Přizpůsobení odsazení a rozložení nadpisu */
+/* Původní `pt-14` (3.5rem) bylo málo, zvýšíme ho */
+.relative.isolate.px-6.pt-14.lg\:px-8 {
+    padding-top: 8rem; /* Zvýšeno pro více místa nad nadpisem */
+    padding-bottom: 8rem; /* Ponecháme nebo upravíme dle potřeby */
+}
+
+/* Zajistíme, aby navigační panel měl dostatečnou výšku a z-index */
+.absolute.inset-x-0.top-0.z-10 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20; /* Vyšší z-index, aby menu bylo nad vším */
+    background-color: var(--bg-canvas-light); /* Bílý podklad, aby text za menu neprosvítal */
+    padding-bottom: var(--spacing-2); /* Mírné odsazení dole */
+}
+.dark .absolute.inset-x-0.top-0.z-10 {
+    background-color: var(--bg-canvas-dark);
+}
+
+
+/* Mobilní menu (Hamburger) */
+/* Skryje normální navigační odkazy na menších obrazovkách */
+.navbar-links {
+    display: none;
+}
+/* Zobrazí hamburger ikonu na menších obrazovkách */
+.mobile-menu-button {
+    display: flex; /* Zobrazí ikonu */
+}
+
+/* Styly pro hamburger ikonu */
+.mobile-menu-button svg {
+    color: var(--text-type-900); /* Barva ikony */
+    height: 1.8rem; /* Větší ikona */
+    width: 1.8rem;
+}
+.dark .mobile-menu-button svg {
+    color: var(--text-type-white);
+}
+
+/* Styly pro rozbalovací menu (skryté ve výchozím stavu) */
+.mobile-menu-content {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Pod navigačním panelem */
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-canvas-light);
+    border-bottom: 1px solid var(--border-slate-100);
+    padding: var(--spacing-4) var(--spacing-6);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+.dark .mobile-menu-content {
+    background-color: var(--bg-canvas-dark);
+    border-color: var(--border-slate-800);
+}
+
+.mobile-menu-content a {
+    color: var(--text-type-900);
+    padding: var(--spacing-2) 0;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-slate-100); /* Oddělovač mezi položkami */
+}
+.dark .mobile-menu-content a {
+    color: var(--text-type-white);
+    border-color: var(--border-slate-800);
+}
+
+.mobile-menu-content a:last-child {
+    border-bottom: none;
+}
+.mobile-menu-content a:hover {
+    color: var(--color-primary);
+}
+
+/* JavaScript trik pro zobrazení menu (bez JS) */
+/* Toto je zjednodušená verze. Pro plnou funkčnost by byl potřeba JS */
+/* Můžeme simulovat rozbalení pomocí CSS :focus-within na rodiči nebo checkox hackem,
+   ale pro jednoduchost použijeme jen zobrazení hamburgeru. */
+/* Pro skutečné rolování bys potřeboval JS.
+   Pokud ti to stačí jen vizuálně a klikání na odkazy už bude fungovat (což bude),
+   tak to necháme takto a uživatel si bude muset odzoomovat, nebo použít scroll.
+   Pro plnohodnotné menu bychom potřebovali JS, který na mobilu nebude snadný.
+*/
+
+/* Media query pro mobilní zařízení (skryje normální menu, zobrazí hamburger) */
+@media (max-width: 767px) { /* Typicky pro mobily a malé tablety */
+    .navbar-links {
+        display: none; /* Skryje normální navigační odkazy */
+    }
+    .mobile-menu-button {
+        display: inline-flex; /* Zobrazí hamburger ikonu */
+    }
+    .mobile-menu-wrapper {
+        position: relative; /* Pro absolutní pozici menu */
+    }
+    /* Vlastní JavaScript pro `is-active` třídu by toto ovládal */
+    /* Pokud je `mobile-menu-wrapper` má třídu `is-active`, zobrazí menu */
+    .mobile-menu-wrapper.is-active .mobile-menu-content {
+        display: flex; /* Zobrazí rozbalovací menu */
+    }
+
+    /* Skrytí tlačítka pro otevření menu, které bylo dříve "hidden" */
+    .nav-header .hidden { /* Předchozí skrytý button, který chceme zobrazit */
+        display: inline-flex !important; /* Důležité pro přepsání Tailwind `hidden` */
+    }
+    /* Skryjeme normální navigační prvky na mobilu */
+    .nav-header .mr-auto.shrink-0.gap-x-4.md\:gap-x-8.flex {
+        display: none;
+    }
+}
+
+/* Centrování footeru */
+footer .prose,
+footer .columns-2,
+footer .flex.flex-wrap.sm\:justify-center {
+    text-align: center; /* Všechny texty a flex kontejnery v patičce na střed */
+    justify-content: center; /* Centrování flex položek */
+}
+
+/* Oprava překrývání: Zvětšíme padding-top pro hero sekci, aby nadpis nekolidoval s navigací */
+.relative.isolate.px-6.pt-14.lg\:px-8 {
+    padding-top: 10rem; /* Zvýšeno, aby se nadpis nekryl */
+    padding-bottom: 8rem; /* Může zůstat stejné nebo se přizpůsobit */
+}
+/* Úprava nadpisu na mobilu, aby se lépe vešel */
+@media (max-width: 639px) { /* Styly pro extra malé obrazovky (pod sm breakpointem) */
+    .text-4xl.font-black.sm\:text-6xl.xl\:text-7xl {
+        font-size: 2.5rem; /* Zmenšíme hlavní nadpis na mobilu */
+        line-height: 1.2;
+    }
+}
+
+/* Zajištění, že se texty nepřekrývají s obrázky */
+.prose .justify-center.flex.mt-8 {
+    margin-top: 2rem; /* Zajistí mezeru nad obrázkem */
+    margin-bottom: 2rem; /* Zajistí mezeru pod obrázkem */
 }
