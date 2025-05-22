@@ -1,4 +1,4 @@
-﻿/* Základní reset a box-sizing */
+/* Základní reset a box-sizing */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -6,413 +6,171 @@
 }
 
 :root {
-    /* Hlavní barvy z loga */
-    --color-primary: #1fb67c;
-    --color-primary-rgb: 31, 182, 124; /* RGB hodnota pro #1fb67c */
-    --color-secondary: #545454;
-    --color-secondary-rgb: 84, 84, 84; /* RGB hodnota pro #545454 */
+    /* Hlavní barvy z loga a Mixo */
+    --color-primary: #1fb67c; /* Hlavní zelená */
+    --color-primary-rgb: 31, 182, 124; /* RGB pro použití s průhledností */
+    --color-secondary: #545454; /* Sekundární šedá */
+    --color-secondary-rgb: 84, 84, 84; /* RGB pro použití s průhledností */
 
-    /* Typografie */
+    /* Barvy textu (dle Mixo startup/shoal palety) */
+    --text-type-950: #0F172A; /* Tmavě modrá pro nadpisy (tmavý) */
+    --text-type-900: #1C2B3A; /* Tmavá pro text (tmavý) */
+    --text-type-800: #4A5568; /* Středně tmavá pro popisky */
+    --text-type-500: #6B7280; /* Světlejší šedá pro copyright/footer */
+    --text-type-white: #ffffff; /* Bílá */
+    --text-type-slate-300: #cbd5e1; /* Světlá šedá pro tmavý režim */
+
+    /* Barvy pozadí (dle Mixo startup/shoal palety) */
+    --bg-canvas-light: #F8FAFC; /* Světlejší pozadí */
+    --bg-canvas-dark: #0F172A; /* Tmavé pozadí pro dark mode */
+    --bg-gray-100: #F3F4F6; /* Velmi světlá šedá */
+    --bg-gray-900-5: rgba(17, 24, 39, 0.05); /* Průhledná šedá */
+    --border-slate-100: #F1F5F9; /* Světlý okraj */
+    --border-slate-800: #1E293B; /* Tmavý okraj */
+    --ring-gray-900-10: rgba(17, 24, 39, 0.1); /* Barva kruhu */
+
+    /* Typografie - fonty importované z Google Fonts */
     --font-sans: 'Open Sans', sans-serif;
     --font-serif: 'Raleway', serif;
 
-    /* Textové barvy */
-    --text-type-950: #1a1a1a; /* Tmavá pro nadpisy */
-    --text-type-900: #2d2d2d;
-    --text-type-800: #424242; /* Pro podnadpisy/popisky */
-    --text-type-500: #7b7b7b; /* Pro méně důležité texty, např. copyright */
+    /* Mezery a rozložení (odpovídající Tailwindu) */
+    --spacing-1: 0.25rem; /* 4px */
+    --spacing-2: 0.5rem;  /* 8px */
+    --spacing-4: 1rem;   /* 16px */
+    --spacing-6: 1.5rem; /* 24px */
+    --spacing-8: 2rem;   /* 32px */
+    --spacing-10: 2.5rem; /* 40px */
+    --spacing-14: 3.5rem; /* 56px */
+    --spacing-16: 4rem;  /* 64px */
+    --spacing-24: 6rem;  /* 96px */
+    --spacing-32: 8rem;  /* 128px */
+    --spacing-40: 10rem; /* 160px */
+    --spacing-80: 20rem; /* 320px */
+
+    /* Max šířky kontejnerů */
+    --max-w-2xl: 42rem; /* 672px */
+    --max-w-6xl: 72rem; /* 1152px */
+    --max-w-7xl: 80rem; /* 1280px */
 }
 
-/* Tmavý režim (základní) */
-body.dark {
-    --text-type-950: #ffffff;
-    --text-type-900: #f0f0f0;
-    --text-type-800: #d0d0d0;
-    --text-type-500: #a0a0a0;
-    background-color: #0f172a; /* tmavě modrá */
-}
-
+/* Základní styly pro body */
 body {
     font-family: var(--font-sans);
     line-height: 1.5;
     color: var(--text-type-900);
+    background-color: var(--bg-canvas-light); /* Světlé pozadí pro celý web */
 }
 
-.bg-canvas {
-    background-color: #ffffff; /* Světlé pozadí */
+/* Dark mode styly */
+/* I když teď nemáme přepínač, přidáváme pro potenciální budoucí použití */
+body.dark {
+    background-color: var(--bg-canvas-dark);
+    color: var(--text-type-slate-300);
 }
+.dark .text-type-950 { color: var(--text-type-white); }
+.dark .text-type-900 { color: var(--text-type-white); }
+.dark .text-type-800 { color: var(--text-type-slate-300); }
+.dark .text-type-500 { color: var(--text-type-500); } /* Může zůstat stejné, nebo upravit */
+.dark .bg-canvas { background-color: var(--bg-canvas-dark); }
+.dark .border-slate-100 { border-color: var(--border-slate-800); }
+.dark .dark\:bg-slate-900 { background-color: var(--bg-canvas-dark); } /* Pro footer */
+.dark .dark\:border-0 { border-width: 0; }
 
-.dark\:bg-slate-950 {
-    background-color: #0f172a; /* Specifické pro dark mode */
-}
 
-.overflow-hidden {
-    overflow: hidden;
-}
+/* Utility třídy (podobné Tailwindu, pro zjednodušení) */
+.bg-canvas { background-color: var(--bg-canvas-light); }
+.overflow-hidden { overflow: hidden; }
 
-.section-spacing {
-    padding: 4rem 0; /* Obecné mezery mezi sekcemi */
-}
+.section-spacing { padding-top: var(--spacing-16); padding-bottom: var(--spacing-16); } /* Univerzální mezery mezi sekcemi */
 
-.border-b {
-    border-bottom-width: 1px;
-}
+.border-b { border-bottom: 1px solid var(--border-slate-100); }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.inset-x-0 { left: 0; right: 0; }
+.top-0 { top: 0; }
+.z-10 { z-index: 10; }
 
-.border-slate-100 {
-    border-color: #f1f5f9;
-}
+.px-6 { padding-left: var(--spacing-6); padding-right: var(--spacing-6); }
+.py-6 { padding-top: var(--spacing-6); padding-bottom: var(--spacing-6); }
+.py-24 { padding-top: 6rem; padding-bottom: 6rem; } /* Větší padding pro obsah stránek */
+.md\:px-8 { /* @media (min-width: 768px) */ padding-left: var(--spacing-8); padding-right: var(--spacing-8); }
+.lg\:px-8 { /* @media (min-width: 1024px) */ padding-left: var(--spacing-8); padding-right: var(--spacing-8); }
 
-.dark\:border-slate-800 {
-    border-color: #1e293b;
-}
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.flex-wrap { flex-wrap: wrap; }
 
-.relative {
-    position: relative;
-}
+.gap-x-4 { column-gap: var(--spacing-4); }
+.md\:gap-x-6 { /* @media (min-width: 768px) */ column-gap: var(--spacing-6); }
+.gap-2 { gap: var(--spacing-2); }
+.gap-x-6 { column-gap: var(--spacing-6); }
+.gap-y-4 { row-gap: var(--spacing-4); }
 
-.absolute {
-    position: absolute;
-}
 
-.inset-x-0 {
-    left: 0;
-    right: 0;
-}
+.shrink-0 { flex-shrink: 0; }
+.mr-auto { margin-right: auto; }
+.mx-auto { margin-left: auto; margin-right: auto; }
 
-.top-0 {
-    top: 0;
-}
-
-.z-10 {
-    z-index: 10;
-}
-
-.px-6 {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-}
-
-.py-6 {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-}
-
-.md\:px-8 {
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
-
-.flex {
-    display: flex;
-}
-
-.items-center {
-    align-items: center;
-}
-
-.justify-between {
-    justify-content: space-between;
-}
-
-.gap-x-4 {
-    column-gap: 1rem;
-}
-
-.md\:gap-x-6 {
-    column-gap: 1.5rem;
-}
-
-.shrink-0 {
-    flex-shrink: 0;
-}
-
-.h-16 {
-    height: 4rem;
-}
-
-.w-auto {
-    width: auto;
-}
+.h-16 { height: var(--spacing-16); }
+.h-12 { height: var(--spacing-12); }
+.lg\:h-16 { /* @media (min-width: 1024px) */ height: var(--spacing-16); }
+.w-auto { width: auto; }
+.w-full { width: 100%; }
 
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-}
-
-.text-3xl {
-    font-size: 1.875rem; /* 30px */
-    line-height: 2.25rem; /* 36px */
-}
-
-.md\:text-4xl {
-    font-size: 2.25rem; /* 36px */
-    line-height: 2.5rem; /* 40px */
-}
-
-.\!leading-none {
-    line-height: 1;
-}
-
-.font-sans {
-    font-family: var(--font-sans);
-}
-
-.font-bold {
-    font-weight: 700;
-}
-
-.text-type-900 {
-    color: var(--text-type-900);
-}
-
-.dark\:text-white {
-    color: #ffffff;
-}
-
-.nav-item {
-    text-decoration: none;
-}
-
-.text-sm {
-    font-size: 0.875rem; /* 14px */
-    line-height: 1.25rem; /* 20px */
-}
-
-.font-semibold {
-    font-weight: 600;
-}
-
-.leading-6 {
-    line-height: 1.5rem; /* 24px */
-}
-
-.capitalize {
-    text-transform: capitalize;
-}
-
-.mr-auto {
-    margin-right: auto;
-}
-
-.space-x-2 > :not([hidden]) ~ :not([hidden]) {
-    margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-    margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.hidden {
-    display: none;
-}
-
-.text-type-900 {
-    color: var(--text-type-900);
-}
-
-.-m-2\.5 {
-    margin: -0.625rem; /* -10px */
-}
-
-.inline-flex {
-    display: inline-flex;
-}
-
-.justify-center {
-    justify-content: center;
-}
-
-.rounded-md {
-    border-radius: 0.375rem; /* 6px */
-}
-
-.p-2\.5 {
-    padding: 0.625rem; /* 10px */
-}
-
-.h-6 {
-    height: 1.5rem; /* 24px */
-}
-
-.w-6 {
-    width: 1.5rem; /* 24px */
-}
-
-.relative.isolate {
-    position: relative;
-    isolation: isolate;
-}
-
-.pt-14 {
-    padding-top: 3.5rem;
-}
-
-.lg\:px-8 {
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
-
-.-top-40 {
-    top: -10rem; /* -160px */
-}
-
-.-z-10 {
-    z-index: -10;
-}
-
-.transform-gpu {
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.blur-3xl {
-    filter: blur(48px);
-}
-
-.sm\:-top-80 {
-    top: -20rem; /* -320px */
-}
-
-.left-\[calc\(50\%-11rem\)\] {
-    left: calc(50% - 11rem);
-}
-
-.aspect-\[1155\/678\] {
-    aspect-ratio: 1155 / 678;
-}
-
-.w-\[36\.125rem\] {
-    width: 36.125rem; /* 578px */
-}
-
-.-translate-x-1\/2 {
-    --tw-translate-x: -50%;
-}
-
-.rotate-\[30deg\] {
-    --tw-rotate: 30deg;
-}
-
-.bg-gradient-to-tr {
-    background-image: linear-gradient(to top right, var(--tw-gradient-stops));
-}
-
-.to-primary {
-    --tw-gradient-to: rgba(var(--color-primary-rgb), var(--tw-to-opacity, 1));
-}
-
-.from-secondary {
-    --tw-gradient-from: rgba(var(--color-secondary-rgb), var(--tw-from-opacity, 1));
-    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(var(--color-secondary-rgb), 0));
-}
-
-.opacity-30 {
-    opacity: 0.3;
-}
-
-.sm\:left-\[calc\(50\%-30rem\)\] {
-    left: calc(50% - 30rem);
-}
-
-.sm\:w-\[72\.1875rem\] {
-    width: 72.1875rem; /* 1155px */
-}
-
-.py-32 {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-}
-
-.mx-auto {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-4xl {
-    font-size: 2.25rem; /* 36px */
-    line-height: 2.5rem; /* 40px */
-}
-
-.font-black {
-    font-weight: 900;
-}
-
-.text-balance {
-    text-wrap: balance;
-}
-
-.tracking-tight {
-    letter-spacing: -0.025em; /* -0.4px */
-}
-
-.sm\:text-6xl {
-    font-size: 3.75rem; /* 60px */
-    line-height: 1;
-}
-
-.xl\:text-7xl {
-    font-size: 4.5rem; /* 72px */
-    line-height: 1;
-}
-
-.text-type-950 {
-    color: var(--text-type-950);
-}
-
-.prose {
-    color: var(--text-type-800); /* Pro texty v paragrafu */
-}
-
-.prose-user p {
-    margin-top: 0;
-    margin-bottom: 1.25em;
-}
-
-.mt-6 {
-    margin-top: 1.5rem;
-}
-
-.sm\:text-xl {
-    font-size: 1.25rem; /* 20px */
-    line-height: 1.75rem; /* 28px */
-}
-
-.font-serif {
-    font-family: var(--font-serif);
-}
-
-.dark\:text-slate-300 {
-    color: #cbd5e1;
-}
-
-.mt-4 {
-    margin-top: 1rem;
-}
-
-.md\:mt-10 {
-    margin-top: 2.5rem;
-}
-
-.space-y-4 > :not([hidden]) ~ :not([hidden]) {
-    margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-    margin-bottom: calc(1rem * var(--tw-space-y-reverse));
-}
-
-.flex-wrap {
-    flex-wrap: wrap;
-}
-
-.gap-2 {
-    gap: 0.5rem;
-}
-
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;
+}
+
+/* Textové styly */
+.text-type-950 { color: var(--text-type-950); }
+.text-type-900 { color: var(--text-type-900); }
+.text-type-800 { color: var(--text-type-800); }
+.text-type-500 { color: var(--text-type-500); }
+.text-type-white { color: var(--text-type-white); }
+.dark\:text-slate-300 { color: var(--text-type-slate-300); }
+
+.font-sans { font-family: var(--font-sans); }
+.font-serif { font-family: var(--font-serif); }
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+.font-black { font-weight: 900; }
+
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.text-xs { font-size: 0.75rem; line-height: 1rem; }
+.leading-6 { line-height: 1.5rem; }
+.leading-5 { line-height: 1.25rem; }
+
+.text-balance { text-wrap: balance; }
+.tracking-tight { letter-spacing: -0.025em; } /* -0.4px */
+.capitalize { text-transform: capitalize; }
+.text-center { text-align: center; }
+.sm\:text-center { /* @media (min-width: 640px) */ text-align: center; }
+
+/* Velikosti písma */
+.text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+.md\:text-4xl { /* @media (min-width: 768px) */ font-size: 2.25rem; line-height: 2.5rem; }
+.text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+.sm\:text-6xl { /* @media (min-width: 640px) */ font-size: 3.75rem; line-height: 1; }
+.xl\:text-7xl { /* @media (min-width: 1280px) */ font-size: 4.5rem; line-height: 1; }
+.sm\:text-xl { /* @media (min-width: 640px) */ font-size: 1.25rem; line-height: 1.75rem; }
+
+/* Odsazení a mezery */
+.mt-4 { margin-top: var(--spacing-4); }
+.mt-6 { margin-top: var(--spacing-6); }
+.mt-8 { margin-top: var(--spacing-8); }
+.mt-16 { margin-top: var(--spacing-16); }
+.md\:mt-10 { /* @media (min-width: 768px) */ margin-top: var(--spacing-10); }
+
+.space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: var(--spacing-4); }
+.space-y-8 > :not([hidden]) ~ :not([hidden]) { margin-top: var(--spacing-8); }
+.sm\:space-x-12 > :not([hidden]) ~ :not([hidden]) { /* @media (min-width: 640px) */ margin-left: 3rem; /* 48px */ }
+
+.pb-2 { padding-bottom: var(--spacing-2); }
+
+/* Buttons */
 .ui-button {
     display: inline-flex;
     align-items: center;
@@ -423,209 +181,127 @@ body {
     text-decoration: none;
     cursor: pointer;
     border: none;
+    transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .ui-button-base {
-    background-color: var(--color-primary); /* Primární barva pro tlačítka */
-    color: #ffffff;
+    background-color: var(--color-primary);
+    color: var(--text-type-white);
 }
+.hover\:scale-\[102\%\]:hover { transform: scale(1.02); }
 
-.hover\:scale-\[102\%\]:hover {
-    transform: scale(1.02);
-}
+/* Blurry gradients (pozadí v Hero sekci) */
+.transform-gpu { transform: translate(var(--tw-translate-x, 0), var(--tw-translate-y, 0)) rotate(var(--tw-rotate, 0)) skewX(var(--tw-skew-x, 0)) skewY(var(--tw-skew-y, 0)) scaleX(var(--tw-scale-x, 1)) scaleY(var(--tw-scale-y, 1)); }
+.blur-3xl { filter: blur(48px); }
+.-top-40 { top: -10rem; } /* -160px */
+.sm\:-top-80 { /* @media (min-width: 640px) */ top: -20rem; } /* -320px */
+.left-\[calc\(50\%-11rem\)\] { left: calc(50% - 11rem); }
+.aspect-\[1155\/678\] { aspect-ratio: 1155 / 678; }
+.w-\[36\.125rem\] { width: 36.125rem; }
+.-translate-x-1\/2 { --tw-translate-x: -50%; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
+.rotate-\[30deg\] { --tw-rotate: 30deg; transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)); }
+.bg-gradient-to-tr { background-image: linear-gradient(to top right, var(--tw-gradient-stops)); }
+.to-primary { --tw-gradient-to: rgba(var(--color-primary-rgb), var(--tw-to-opacity, 1)); }
+.from-secondary { --tw-gradient-from: rgba(var(--color-secondary-rgb), var(--tw-from-opacity, 1)); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(var(--color-secondary-rgb), 0)); }
+.opacity-30 { opacity: 0.3; }
+.sm\:left-\[calc\(50\%-30rem\)\] { /* @media (min-width: 640px) */ left: calc(50% - 30rem); }
+.sm\:w-\[72\.1875rem\] { /* @media (min-width: 640px) */ width: 72.1875rem; }
 
-.transition-transform {
-    transition-property: transform;
-    transition-duration: 150ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+.top-\[calc\(100\%-13rem\)\] { top: calc(100% - 13rem); }
+.sm\:top-\[calc\(100\%-30rem\)\] { /* @media (min-width: 640px) */ top: calc(100% - 30rem); }
+.left-\[calc\(50\% \+ 3rem\)\] { left: calc(50% + 3rem); }
+.sm\:left-\[calc\(50\% \+ 36rem\)\] { /* @media (min-width: 640px) */ left: calc(50% + 36rem); }
 
-.mt-16 {
-    margin-top: 4rem;
-}
-
-.w-full {
-    width: 100%;
-}
-
-.-m-2 {
-    margin: -0.5rem; /* -8px */
-}
-
-.rounded-xl {
-    border-radius: 0.75rem; /* 12px */
-}
-
-.sm\:rounded-3xl {
-    border-radius: 1.5rem; /* 24px */
-}
-
-.bg-gray-900\/5 {
-    background-color: rgba(17, 24, 39, 0.05); /* 5% alpha black */
-}
-
-.p-2 {
-    padding: 0.5rem;
-}
-
-.ring-1 {
-    box-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-}
-
-.ring-inset {
-    --tw-ring-inset: inset;
-}
-
-.ring-gray-900\/10 {
-    --tw-ring-color: rgba(17, 24, 39, 0.1);
-}
-
-.lg\:-m-4 {
-    margin: -1rem; /* -16px */
-}
-
-.lg\:p-4 {
-    padding: 1rem;
-}
-
-.max-w-6xl {
-    max-width: 72rem; /* 1152px */
-}
-
-.shadow-2xl {
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
-.top-\[calc\(100\%-13rem\)\] {
-    top: calc(100% - 13rem);
-}
-
-.sm\:top-\[calc\(100\%-30rem\)\] {
-    top: calc(100% - 30rem);
-}
-
-.left-\[calc\(50\% \+ 3rem\)\] {
-    left: calc(50% + 3rem);
-}
-
-.sm\:left-\[calc\(50\% \+ 36rem\)\] {
-    left: calc(50% + 36rem);
-}
+/* Obrázky */
+.rounded-xl { border-radius: 0.75rem; }
+.sm\:rounded-3xl { /* @media (min-width: 640px) */ border-radius: 1.5rem; }
+.bg-gray-900\/5 { background-color: var(--bg-gray-900-5); }
+.p-2 { padding: var(--spacing-2); }
+.ring-1 { box-shadow: var(--tw-ring-inset, 0 0 #0000) 0 0 0 calc(1px + var(--tw-ring-offset-width, 0px)) var(--tw-ring-color, #0000); }
+.ring-inset { --tw-ring-inset: inset; }
+.ring-gray-900\/10 { --tw-ring-color: var(--ring-gray-900-10); }
+.lg\:-m-4 { /* @media (min-width: 1024px) */ margin: -1rem; }
+.lg\:p-4 { /* @media (min-width: 1024px) */ padding: 1rem; }
+.max-w-6xl { max-width: var(--max-w-6xl); }
+.shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
 
 /* Footer */
 footer {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-    border-top: 1px solid #e2e8f0; /* Světlý border pro footer */
+    border-top: 1px solid var(--border-slate-100);
+    position: relative;
+    padding-top: var(--spacing-16);
+    padding-bottom: var(--spacing-16);
 }
-
-.dark\:border-0 {
-    border-width: 0;
-}
-
-.dark\:bg-slate-900 {
-    background-color: #0f172a;
-}
-
-.max-w-7xl {
-    max-width: 80rem; /* 1280px */
-}
-
-.py-16 {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-}
-
-.sm\:py-24 {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-}
-
-.lg\:px-8 {
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
-
-.space-y-8 > :not([hidden]) ~ :not([hidden]) {
-    margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
-    margin-bottom: calc(2rem * var(--tw-space-y-reverse));
-}
-
-.dark\:text-slate-100 {
-    color: #f1f5f9;
-}
-
-.sm\:text-center {
-    text-align: center;
-}
-
-.columns-2 {
-    columns: 2;
-}
-
-.sm\:flex {
-    display: flex;
-}
-
-.sm\:justify-center {
-    justify-content: center;
-}
-
-.sm\:space-x-12 > :not([hidden]) ~ :not([hidden]) {
-    margin-right: calc(3rem * var(--tw-space-x-reverse));
-    margin-left: calc(3rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.pb-2 {
-    padding-bottom: 0.5rem;
-}
+.dark\:border-0 { border-width: 0; }
+.dark\:bg-slate-900 { background-color: var(--bg-canvas-dark); }
+.max-w-7xl { max-width: var(--max-w-7xl); }
+.sm\:py-24 { /* @media (min-width: 640px) */ padding-top: 6rem; padding-bottom: 6rem; }
+.columns-2 { columns: 2; }
 
 .footer-link {
     color: var(--text-type-800);
     text-decoration: none;
 }
+.footer-link:hover { color: var(--color-primary); }
 
-.footer-link:hover {
-    color: var(--color-primary); /* Barva odkazu při najetí myši */
+.rounded-sm { border-radius: 0.125rem; }
+
+.text-gray-400 { color: #9ca3af; } /* Ponecháno jako pevná hodnota */
+.hover\:text-primary:hover { color: var(--color-primary); }
+
+/* Prose - pro formátování textů v odstavcích, seznamech atd. */
+/* Toto je zjednodušená verze Tailwind Typography pluginu */
+.prose {
+    color: var(--text-type-800);
+    font-size: 1rem; /* 16px */
+    line-height: 1.75; /* 28px */
+}
+.prose :where(h1):not(:where([class~="not-prose"] *)) {
+    color: var(--text-type-950);
+    font-size: 2.25em; /* 36px */
+    line-height: 1.1111111;
+    margin-top: 0;
+    margin-bottom: 0.8888889em;
+}
+.prose :where(h2):not(:where([class~="not-prose"] *)) {
+    color: var(--text-type-900);
+    font-size: 1.5em; /* 24px */
+    line-height: 1.3333333;
+    margin-top: 1.5em;
+    margin-bottom: 0.8888889em;
+}
+.prose :where(h3):not(:where([class~="not-prose"] *)) {
+    color: var(--text-type-900);
+    font-size: 1.25em; /* 20px */
+    line-height: 1.2;
+    margin-top: 1.6em;
+    margin-bottom: 0.6em;
+}
+.prose :where(p):not(:where([class~="not-prose"] *)) {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+}
+.prose :where(ul):not(:where([class~="not-prose"] *)) {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+    padding-left: 1.625em;
+    list-style-type: disc;
+}
+.prose :where(li):not(:where([class~="not-prose"] *)) {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.prose :where(a):not(:where([class~="not-prose"] *)) {
+    color: var(--color-primary); /* Barva odkazů v textu */
+    text-decoration: underline;
+}
+.prose :where(a):not(:where([class~="not-prose"] *)):hover {
+    color: #1a9e6b; /* Mírně tmavší zelená pro hover */
 }
 
-.h-12 {
-    height: 3rem; /* 48px */
-}
 
-.lg\:h-16 {
-    height: 4rem; /* 64px */
-}
-
-.rounded-sm {
-    border-radius: 0.125rem; /* 2px */
-}
-
-.text-gray-400 {
-    color: #9ca3af;
-}
-
-.hover\:text-primary:hover {
-    color: var(--color-primary);
-}
-
-.text-xs {
-    font-size: 0.75rem; /* 12px */
-    line-height: 1rem; /* 16px */
-}
-
-.leading-5 {
-    line-height: 1.25rem; /* 20px */
-}
-
-.text-type-500 {
-    color: var(--text-type-500);
-}
 /* Styling for active navigation item */
 .nav-item.active-nav-item {
     color: var(--color-primary); /* Zvýrazní aktivní odkaz primární barvou */
-    /* Můžeš přidat i další styly, např. podtržení: */
+    /* Můžeš přidat i podtržení, pokud chceš: */
     /* border-bottom: 2px solid var(--color-primary); */
 }
-
-
