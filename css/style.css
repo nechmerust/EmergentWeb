@@ -621,5 +621,11 @@ footer {
 .text-type-500 {
     color: var(--text-type-500);
 }
+/* Styling for active navigation item */
+.nav-item.active-nav-item {
+    color: var(--color-primary); /* Zvýrazní aktivní odkaz primární barvou */
+    /* Můžeš přidat i další styly, např. podtržení: */
+    /* border-bottom: 2px solid var(--color-primary); */
+}
 
 
