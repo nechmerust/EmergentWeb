@@ -1,148 +1,600 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jsme společenství lidí, kteří věří v možnost harmonického života v souladu s přírodou a všemi bytostmi.</title>
+    <title>Nech Mě Růst - Harmonický život v souladu s přírodou</title>
     <link rel="icon" href="img/logo.png">
     <meta name="description" content="Naší vizí je vytvořit rodový statek jako živý organismus, kde všechny části - lidé, zvířata, rostliny i stavby - koexistují v harmonii a vzájemně se podporují ve svém růstu.">
     
+    <!-- Open Graph -->
     <meta property="og:url" content="https://tvoje-domena.cz/">
-    <meta property="og:title" content="Jsme společenství lidí, kteří věří v možnost harmonického života v souladu s přírodou a všemi bytostmi.">
-    <meta property="og:site_name" content="nechmerust">
+    <meta property="og:title" content="Nech Mě Růst - Harmonický život v souladu s přírodou">
+    <meta property="og:site_name" content="Nech Mě Růst">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Naší vizí je vytvořit rodový statek jako živý organismus, kde všechny části - lidé, zvířata, rostliny i stavby - koexistují v harmonii a vzájemně se podporují ve svém růstu.">
+    <meta property="og:description" content="Naší vizí je vytvořit rodový statek jako živý organismus, kde všechny části koexistují v harmonii.">
     <meta property="og:image" content="img/hero-image.jpg">
     <meta property="og:image:alt" content="Tvoříme prostor pro růst duše, srdce i přírody">
 
-    <meta property="twitter:url" content="https://tvoje-domena.cz/">
-    <meta property="twitter:title" content="Jsme společenství lidí, kteří věří v možnost harmonického života v souladu s přírodou a všemi bytostmi.">
-    <meta property="twitter:description" content="Naší vizí je vytvořit rodový statek jako živý organismus, kde všechny části - lidé, zvířata, rostliny i stavby - koexistují v harmonii a vzájemně se podporují ve svém růstu.">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:image:src" content="img/hero-image.jpg">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nech Mě Růst - Harmonický život v souladu s přírodou">
+    <meta name="twitter:description" content="Naší vizí je vytvořit rodový statek jako živý organismus, kde všechny části koexistují v harmonii.">
+    <meta name="twitter:image" content="img/hero-image.jpg">
 
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Nech Mě Růst",
+        "url": "https://tvoje-domena.cz",
+        "logo": "https://tvoje-domena.cz/img/logo.png",
+        "description": "Nezisková organizace s vizí tvorby rodového statku v harmonii s přírodou",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "info@nechmerust.cz",
+            "contactType": "customer service"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Vlkaneč",
+            "addressCountry": "CZ"
+        }
+    }
+    </script>
+
+    <!-- Fonts with optimized loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@400;600;700;900&display=swap">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@400;600;700;900&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@400;600;700;900&display=swap"></noscript>
+    
+    <style>
+        /* Critical CSS */
+        :root {
+            --color-primary: #1fb67c;
+            --color-primary-rgb: 31, 182, 124;
+            --color-secondary: #545454;
+            --color-secondary-rgb: 84, 84, 84;
+            --font-sans: 'Open Sans', sans-serif;
+            --font-serif: 'Raleway', serif;
+            --text-type-950: #1a1a1a;
+            --text-type-900: #2d2d2d;
+            --text-type-800: #424242;
+            --text-type-500: #7b7b7b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.5;
+            color: var(--text-type-900);
+            background-color: #ffffff;
+        }
+
+        /* Utility classes */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .relative {
+            position: relative;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+
+        /* Header */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            padding: 1.5rem 0;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 4rem;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--text-type-900);
+            line-height: 1;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            margin-right: auto;
+            margin-left: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-type-900);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus {
+            color: var(--color-primary);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--color-primary);
+        }
+
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            color: var(--text-type-900);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            padding: 1rem;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        /* Hero section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -10rem;
+            left: calc(50% - 11rem);
+            width: 36.125rem;
+            height: 24rem;
+            background: linear-gradient(45deg, rgba(31, 182, 124, 0.3), rgba(84, 84, 84, 0.3));
+            border-radius: 50%;
+            filter: blur(48px);
+            z-index: -1;
+            transform: rotate(30deg);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.25rem, 5vw, 4.5rem);
+            font-weight: 900;
+            color: var(--text-type-950);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            font-family: var(--font-sans);
+        }
+
+        .hero h2 {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-type-800);
+            margin-bottom: 2rem;
+            font-family: var(--font-serif);
+            font-weight: 400;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(31, 182, 124, 0.3);
+        }
+
+        .hero-image {
+            max-width: 1152px;
+            margin: 0 auto;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid #e2e8f0;
+            padding: 4rem 0;
+            background-color: #fafafa;
+        }
+
+        .footer-content {
+            text-align: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .footer-info {
+            margin-bottom: 2rem;
+            color: var(--text-type-800);
+            font-family: var(--font-serif);
+        }
+
+        .footer-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-info a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .footer-links {
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-type-800);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-image {
+            margin-bottom: 2rem;
+        }
+
+        .footer-image img {
+            height: 3rem;
+            width: auto;
+            border-radius: 0.25rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            color: #9ca3af;
+            transition: color 0.2s ease;
+        }
+
+        .social-link:hover {
+            color: var(--color-primary);
+        }
+
+        .social-link svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: var(--text-type-500);
+            font-family: var(--font-serif);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 6rem 0 3rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 3rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Focus styles for accessibility */
+        .nav-link:focus,
+        .btn:focus,
+        .social-link:focus {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        /* Loading animation */
+        .hero-image img {
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="bg-canvas overflow-hidden">
-        <div class="section-spacing">
-            <div class="border-b border-slate-100 dark:border-slate-800 overflow-hidden relative">
-                <div class="absolute inset-x-0 top-0 z-10 nav-header">
-                    <div class="px-6 py-6 md:px-8 relative z-10 flex items-center justify-between">
-                        <a href="index.html" class="gap-x-3 shrink-0 flex items-center">
-                            <img class="h-16 w-auto" src="img/logo.png" alt="nechmerust logo">
-                            <p class="sr-only text-3xl md:text-4xl !leading-none text-type-900">nechmerust</p>
-                        </a>
-                        <div class="mr-auto shrink-0 gap-x-4 md:gap-x-8 flex navbar-links">
-                            <a href="index.html" class="text-type-900 nav-item text-sm shrink-0 font-sans font-semibold leading-6 capitalize active-nav-item">Úvod</a>
-                            <a href="about-us.html" class="text-type-900 nav-item text-sm shrink-0 font-sans font-semibold leading-6 capitalize">O Nás</a>
-                            <a href="how-to-support.html" class="text-type-900 nav-item text-sm shrink-0 font-sans font-semibold leading-6 capitalize">Jak nás podpořit</a>
-                            <a href="products.html" class="text-type-900 nav-item text-sm shrink-0 font-sans font-semibold leading-6 capitalize">Produkty</a>
-                            <a href="animals.html" class="text-type-900 nav-item text-sm shrink-0 font-sans font-semibold leading-6 capitalize">Zvířecí obyvatelé</a>
-                        </div>
-                        
-                        <div class="flex font-sans items-center space-x-2 mobile-menu-wrapper">
-                            <button type="button" class="mobile-menu-button -m-2.5 inline-flex items-center justify-center rounded-md p-2.5">
-                                <span class="sr-only">Open main menu</span>
-                                <svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20" class="h-6 w-6" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"></path></svg>
-                            </button>
-                            <div class="mobile-menu-content">
-                                <a href="index.html" class="nav-item active-nav-item">Úvod</a>
-                                <a href="about-us.html" class="nav-item">O Nás</a>
-                                <a href="how-to-support.html" class="nav-item">Jak nás podpořit</a>
-                                <a href="products.html" class="nav-item">Produkty</a>
-                                <a href="animals.html" class="nav-item">Zvířecí obyvatelé</a>
-                            </div>
-                        </div>
-                    </div>
+    <header class="header">
+        <div class="container">
+            <nav class="nav" role="navigation" aria-label="Hlavní navigace">
+                <a href="index.html" class="logo">
+                    <img src="img/logo.png" alt="Nech Mě Růst logo" width="64" height="64">
+                    <span class="logo-text sr-only">Nech Mě Růst</span>
+                </a>
+                
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link active">Úvod</a>
+                    <a href="about-us.html" class="nav-link">O Nás</a>
+                    <a href="how-to-support.html" class="nav-link">Jak nás podpořit</a>
+                    <a href="products.html" class="nav-link">Produkty</a>
+                    <a href="animals.html" class="nav-link">Zvířecí obyvatelé</a>
                 </div>
-                <div class="relative isolate px-6 pt-14 lg:px-8">
-                    <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
-                        <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr to-primary from-secondary opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path:polygon(
-                                      74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%,
-                                      60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%,
-                                      17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%
-                                    );"></div>
-                    </div>
-                    <div class="py-32">
-                        <div class="mx-auto max-w-2xl"> <div class="text-center">
-                                <h1 class="text-4xl font-black font-sans text-balance tracking-tight sm:text-6xl xl:text-7xl text-type-950"><span>Tvoříme prostor pro růst duše, srdce i přírody</span><span></span></h1>
-                                <h2 class="prose mt-6 text-balance sm:text-xl font-serif text-type-800">
-                                    <p>Nech Mě Růst z.s. je nezisková organizace s vizí tvorby rodového statku, kde žijeme v harmonii s přírodou, zvířaty i sebou navzájem.</p>
-                                </h2>
-                                <div class="mt-4 md:mt-10 space-y-4">
-                                    <div class="justify-center flex flex-wrap gap-2">
-                                        <div>
-                                            <a class="ui-button ui-button-base hover:scale-[102%] transition-transform" href="about-us.html">O nás</a>
-                                        </div>
-                                        <div>
-                                            <a class="ui-button ui-button-base hover:scale-[102%] transition-transform" href="how-to-support.html">Jak nás podpořit?</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="justify-center flex mt-16">
-                            <div class="w-full -m-2 rounded-xl sm:rounded-3xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:p-4 max-w-6xl">
-                                <img class="w-full rounded-xl sm:rounded-3xl shadow-2xl ring-1 ring-gray-900/10" src="img/hero-image.jpg" alt="nechmerust">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
-                        <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr to-primary from-secondary opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path:polygon(
-                                      74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%,
-                                      60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%,
-                                      17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%
-                                    );"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <footer class="border-t dark:border-0 dark:bg-slate-900 relative">
-            <div class="mx-auto max-w-7xl overflow-hidden py-16 px-6 sm:py-24 lg:px-8 space-y-8">
-                <div class="prose font-serif text-type-800 sm:text-center sm:mx-auto">
-                    <p><a href="mailto:info@nechmerust.cz">info@nechmerust.cz</a></p>
-                    <p>IČ: 19602529</p>
-                    <p>Vlkaneč, Česká Republika</p>
-                </div>
-                <nav class="columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
-                    <div class="pb-2">
-                        <a href="https://linktr.ee/nechmerust?utm_source=linktree_profile_share" class="text-sm leading-6 footer-link font-sans" target="_blank">LinkTree</a>
-                    </div>
-                </nav>
-                <div class="flex flex-wrap sm:justify-center gap-x-6 gap-y-4">
-                    <div>
-                        <img src="img/footer-image.png" alt="Image 0" class="h-12 w-auto lg:h-16 rounded-sm">
-                    </div>
-                </div>
-                <div class="flex flex-wrap sm:justify-center gap-x-6 gap-y-4">
-                    <a href="https://www.facebook.com/share/1AkbXrhiRC/" class="text-gray-400 hover:text-primary" target="_blank">
-                        <span class="sr-only">facebook</span>
-                        <svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="h-6 w-6"><path fill="currentColor" d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02"></path></svg>
-                    </a>
-                    <a href="https://www.instagram.com/nech_me_rust?igsh=azM4ZTZwOHJ5MnNl" class="text-gray-400 hover:text-primary" target="_blank">
-                        <span class="sr-only">instagram</span>
-                        <svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="h-6 w-6"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"></path></svg>
-                    </a>
-                </div>
-                <p class="sm:text-center text-xs leading-5 text-type-500 font-serif">© All rights reserved.</p>
-            </div>
-        </footer>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuButton = document.querySelector('.mobile-menu-button');
-            const mobileMenu = document.querySelector('.mobile-menu-wrapper');
 
-            if (menuButton && mobileMenu) {
-                menuButton.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('is-active');
-                });
+                <button type="button" class="mobile-menu-btn" aria-label="Otevřít hlavní menu" aria-expanded="false">
+                    <svg width="24" height="24" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+
+                <div class="mobile-menu" id="mobile-menu">
+                    <a href="index.html" class="nav-link active">Úvod</a>
+                    <a href="about-us.html" class="nav-link">O Nás</a>
+                    <a href="how-to-support.html" class="nav-link">Jak nás podpořit</a>
+                    <a href="products.html" class="nav-link">Produkty</a>
+                    <a href="animals.html" class="nav-link">Zvířecí obyvatelé</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Tvoříme prostor pro růst duše, srdce i přírody</h1>
+                    <h2>Nech Mě Růst z.s. je nezisková organizace s vizí tvorby rodového statku, kde žijeme v harmonii s přírodou, zvířaty i sebou navzájem.</h2>
+                    
+                    <div class="hero-buttons">
+                        <a href="about-us.html" class="btn btn-primary">O nás</a>
+                        <a href="how-to-support.html" class="btn btn-primary">Jak nás podpořit?</a>
+                    </div>
+
+                    <div class="hero-image">
+                        <img src="img/hero-image.jpg" alt="Harmonický život v souladu s přírodou - rodový statek Nech Mě Růst" loading="lazy" width="1152" height="auto">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p><a href="mailto:info@nechmerust.cz">info@nechmerust.cz</a></p>
+                <p>IČ: 19602529</p>
+                <p>Vlkaneč, Česká Republika</p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="https://linktr.ee/nechmerust?utm_source=linktree_profile_share" target="_blank" rel="noopener noreferrer">LinkTree</a>
+            </div>
+            
+            <div class="footer-image">
+                <img src="img/footer-image.png" alt="Certifikát či logo partnera" loading="lazy" width="64" height="48">
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1AkbXrhiRC/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02"></path>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/nech_me_rust?igsh=azM4ZTZwOHJ5MnNl" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"></path>
+                    </svg>
+                </a>
+            </div>
+            
+            <p class="copyright">© 2024 Nech Mě Růst z.s. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+            mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
             }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Lazy loading fallback for older browsers
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Add focus styles for keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
         });
     </script>
 </body>
-</html>
+    </html>
