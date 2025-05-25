@@ -61,9 +61,9 @@
             position: relative;
             transition: max-height 0.5s ease-out;
         }
-        /* === NOVÉ/UPRAVENÉ STYLY PRO TEXT V ROZBALOVACÍCH SEKCÍCH === */
+        /* === STYLY PRO TEXT V ROZBALOVACÍCH SEKCÍCH (sjednocení velikosti) === */
         .expandable-text p,
-        .expandable-text ul li { /* Cílíme na odstavce a položky seznamu uvnitř rozbalovacího textu */
+        .expandable-text ul li { 
             font-size: 1rem; /* Explicitní nastavení velikosti písma, aby odpovídalo standardnímu textu (většinou 16px) */
             line-height: 1.6; /* Explicitní nastavení výšky řádku, konzistentní s body */
             color: var(--text-type-800); /* Sjednocení barvy textu s .content-wrapper p */
@@ -87,7 +87,7 @@
             color: var(--text-type-900); /* Tmavší barva pro zvýraznění, konzistentní s jinými strong elementy */
             font-weight: 700; /* Standardní tučnost */
         }
-        /* === KONEC NOVÝCH/UPRAVENÝCH STYLŮ === */
+        /* === KONEC STYLŮ PRO ROZBALOVACÍ SEKCE === */
 
         .expandable-text-collapsed {
             max-height: 150px; /* Počáteční výška, zobrazí cca 5-6 řádků */
@@ -180,7 +180,7 @@
                     <img src="img/qr.jpg" alt="QR kód pro platbu" loading="lazy" class="content-image-small">
                     <p class="text-sm">Pomáhejte nám růst.</p>
                     
-                    <h3>Virtuální adopce</h3>
+                    <h3>Virtuální adopce.</h3>
                     <img src="img/adopce.jpg" alt="Virtuální adopce - ilustrační obrázek" loading="lazy" class="content-image-small">
                     <div id="virtualniAdopceText" class="expandable-text expandable-text-collapsed">
                         <p>Staňte se patronem zvířete, které si oblíbíte. Pokud jste si vždy přáli mít doma například krávu či ovce, ale okolnosti vám to nedovolily, patronát představuje ideální příležitost, jak si alespoň částečně splnit tento sen. Věříme, že sny se mají plnit, a to nejen o Vánocích.</p>
@@ -301,6 +301,7 @@
         color: var(--text-type-900);
         background-color: #ffffff;
         padding-top: 0; 
+        font-size: 1rem; /* Nastavení základní velikosti písma pro tělo dokumentu na 1rem (typicky 16px) */
     }
 
     body:not(.home-page) {
@@ -607,11 +608,12 @@
     .content-wrapper h2 { font-size: 1.75rem; }
     .content-wrapper h3 { font-size: 1.375rem; }
 
+    /* --- ÚPRAVA: Explicitní nastavení font-size a line-height pro .content-wrapper p a ul li --- */
     .content-wrapper p {
+        font-size: 1rem; /* Explicitní nastavení pro konzistenci a čitelnost */
+        line-height: 1.6; /* Standardní výška řádku pro lepší čitelnost */
         margin-bottom: 1.25rem; 
         color: var(--text-type-800);
-        /* font-size: 1rem; implicitně z body, pokud není přepsáno */
-        /* line-height: 1.6; implicitně z body, pokud není přepsáno */
     }
 
     .content-wrapper ul {
@@ -620,10 +622,12 @@
         margin-bottom: 1.25rem;
     }
     .content-wrapper ul li {
+        font-size: 1rem; /* Explicitní nastavení pro konzistenci */
+        line-height: 1.6; /* Konzistentní výška řádku */
         margin-bottom: 0.6rem;
         color: var(--text-type-800);
-         /* font-size: 1rem; implicitně, pokud není přepsáno */
     }
+    /* --- KONEC ÚPRAVY --- */
     .content-wrapper ul li::marker { color: var(--color-primary); }
     .content-wrapper ul li strong { color: var(--text-type-900); }
 
@@ -959,4 +963,3 @@
 </script>  
 </body>
 </html>
-
