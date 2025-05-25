@@ -43,7 +43,52 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@400;700;900&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@400;700;900&display=swap"></noscript>
     
-    <!-- Společné CSS bude vloženo na konci body -->
+    <style>
+        /* Styl pro zmenšené obrázky v obsahu */
+        .content-image-small {
+            max-width: 400px; /* Maximální šířka obrázku */
+            width: 80%; /* Šířka relativní k rodiči, ale ne více než max-width */
+            height: auto;
+            border-radius: 0.75rem;
+            margin: 1.5rem auto; /* Menší horní/dolní okraj, centrování */
+            display: block;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+        }
+
+        /* Styly pro "Read more" funkcionalitu */
+        .expandable-text {
+            overflow: hidden;
+            position: relative;
+            transition: max-height 0.5s ease-out;
+        }
+        .expandable-text-collapsed {
+            max-height: 150px; /* Počáteční výška, zobrazí cca 5-6 řádků */
+        }
+        .expandable-text-expanded {
+            max-height: 2000px; /* Dostatečně velká hodnota pro zobrazení celého textu */
+        }
+        .read-more-btn {
+            display: inline-block;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem; /* Přidáno pro odsazení od dalšího obsahu */
+            padding: 0.5rem 1rem;
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+        .read-more-btn:hover {
+            background-color: #148a60; /* Tmavší primární barva */
+        }
+        .click-feed-button-container {
+            text-align: center; /* Centrování tlačítka */
+            margin-top: 1rem; /* Odsazení shora */
+            margin-bottom: 1.5rem; /* Odsazení zdola */
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -94,52 +139,48 @@
                     <h3>Finanční příspěvek</h3>
                     <p>Přímý finanční dar je pro nás tou nejúčinnější formou podpory. Využijeme jej především na nákup krmiva pro zvířata, veterinární péči a rozvoj přírodního stavitelství. Číslo našeho transparentního účtu je: <strong>2002645872 / 2010 (Fio banka)</strong></p>
                     
-                    <img src="img/qr.jpg" alt="Podpořte nás - ilustrační obrázek" loading="lazy">
+                    <img src="img/qr.jpg" alt="QR kód pro platbu" loading="lazy" class="content-image-small">
                     <p class="text-sm">Pomáhejte nám růst.</p>
-                    <img src="img/adopce.jpg" alt="Virtuální adopce" loading="lazy">
-<h3>Virtuální adopce.</h3>
-                    <p>Staňte se patronem zvířete, které si oblíbíte. Pokud jste si vždy přáli mít doma například krávu či ovce, ale okolnosti vám to nedovolily, patronát představuje ideální příležitost, jak si alespoň částečně splnit tento sen. Věříme, že sny se mají plnit, a to nejen o Vánocích.
+                    
+                    <h3>Virtuální adopce.</h3>
+                    <img src="img/adopce.jpg" alt="Virtuální adopce - ilustrační obrázek" loading="lazy" class="content-image-small">
+                    <div id="virtualniAdopceText" class="expandable-text expandable-text-collapsed">
+                        <p>Staňte se patronem zvířete, které si oblíbíte. Pokud jste si vždy přáli mít doma například krávu či ovce, ale okolnosti vám to nedovolily, patronát představuje ideální příležitost, jak si alespoň částečně splnit tento sen. Věříme, že sny se mají plnit, a to nejen o Vánocích.</p>
+                        <p><strong>Výhody patronátu</strong></p>
+                        <p>Jako patron budete mít možnost kdykoli (po předchozí domluvě) navštívit zvíře, vzít ho na procházku nebo se s ním pomazlit. Tyto interakce jsou prospěšné jak pro vás, tak pro zvířata. V případě, že vám bude chybět přímý kontakt, můžeme vám zaslat aktuální fotografie či videa, abyste měli přehled o tom, jak se vašemu patronovanému zvířeti daří.</p>
+                        <p><strong>Proces patronátu</strong></p>
+                        <ul>
+                            <li>Výběr zvířete: Vyberte si zvíře, které vás zaujme.</li>
+                            <li>Projev zájmu: Kontaktujte nás s projevem zájmu o patronát na <a href="mailto:nechmerust@gmail.com" class="inline-link">nechmerust@gmail.com</a> , či instagram.</li>
+                            <li>Nastavení trvalého příkazu: Nastavte trvalý příkaz na náš transparentní účet. Do poznámky můžete uvést, pro které zvíře je příspěvek určen.</li>
+                            <li>Certifikace: Vystavíme vám certifikát potvrzující nabytí patronátu.</li>
+                        </ul>
+                        <p><strong>Váš přínos</strong></p>
+                        <p>Díky vaší podpoře bude mít vybrané zvíře zajištěn bezpečný domov, dostatek krmiva a čisté, teplé místo k odpočinku. Stáváte se tak jeho andělem strážným a ochráncem.</p>
+                        <p>#expectopatronum</p>
+                        <p><strong>Přímý kontakt</strong></p>
+                        <p>Nezbývá než vás pozvat k nám, abyste se mohli se zvířetem setkat a pomazlit se s ním.</p>
+                        <p>Je důležité zmínit, že jedno zvíře může mít současně více patronů a patronek, neboť hlavním cílem je vždy blaho zvířete. 💫</p>
+                    </div>
+                    <button id="readMoreBtnVirtualniAdopce" class="read-more-btn" aria-expanded="false" aria-controls="virtualniAdopceText">Číst více</button>
+                    <img src="img/certifikat.jpg" alt="Certifikát patronátu" loading="lazy" class="content-image-small">
 
-Výhody patronátu
-
-Jako patron budete mít možnost kdykoli (po předchozí domluvě) navštívit zvíře, vzít ho na procházku nebo se s ním pomazlit. Tyto interakce jsou prospěšné jak pro vás, tak pro zvířata. V případě, že vám bude chybět přímý kontakt, můžeme vám zaslat aktuální fotografie či videa, abyste měli přehled o tom, jak se vašemu patronovanému zvířeti daří.
-
-Proces patronátu
-
-* Výběr zvířete: Vyberte si zvíře, které vás zaujme.
-
-* Projev zájmu: Kontaktujte nás s projevem zájmu o patronát na nechmerust@gmail.com , či instagram.
-
-* Nastavení trvalého příkazu: Nastavte trvalý příkaz na náš transparentní účet. Do poznámky můžete uvést, pro které zvíře je příspěvek určen.
-
-* Certifikace: Vystavíme vám certifikát potvrzující nabytí patronátu.
-
-Váš přínos
-
-Díky vaší podpoře bude mít vybrané zvíře zajištěn bezpečný domov, dostatek krmiva a čisté, teplé místo k odpočinku. Stáváte se tak jeho andělem strážným a ochráncem.
-
-#expectopatronum
-
-Přímý kontakt
-
-Nezbývá než vás pozvat k nám, abyste se mohli se zvířetem setkat a pomazlit se s ním.
-
-Je důležité zmínit, že jedno zvíře může mít současně více patronů a patronek, neboť hlavním cílem je vždy blaho zvířete. 💫</p>
-                <img src="img/certifikat.jpg" alt="Certifikát" loading="lazy"
                     <h3>Koupě našich produktů</h3>
                     <p>V našem e-shopu naleznete ručně vyráběné produkty z přírodních materiálů, bylinné směsi a další předměty spojené s naší Loukou. Každou koupí podpoříte naši činnost a zároveň získáte jedinečný produkt s příběhem. Více informací v sekci <a href="products.html" class="inline-link">Produkty</a>.</p>
+                    
                     <h3>Nákup na nakrmnas.cz</h3>
-                    <p>Organizace @nakrmnas.cz nabízí unikátní formu pomoci, kdy si přímo z našeho seznamu přání na jejich webu vyberete, co momentálně nejvíce potřebujeme.
-
-V současné době jsou to především kočičí granule.
-
-Jedinečnost této podpory spočívá v tom, že nakrmnas.cz doručí vybrané potřeby každý měsíc přímo k nám do azylu. Je to jednoduchý a efektivní způsob, jak nám pravidelně pomáhat.
-
-Více informací naleznete zde: https://www.nakrmnas.cz/nech-me-rust/</p>
+                    <p id="nakrmnasText">Organizace @nakrmnas.cz nabízí unikátní formu pomoci, kdy si přímo z našeho seznamu přání na jejich webu vyberete, co momentálně nejvíce potřebujeme.</p>
+                    <p>V současné době jsou to především kočičí granule.</p>
+                    <p>Jedinečnost této podpory spočívá v tom, že nakrmnas.cz doručí vybrané potřeby každý měsíc přímo k nám do azylu. Je to jednoduchý a efektivní způsob, jak nám pravidelně pomáhat.</p>
+                    <p>Více informací naleznete zde: <a href="https://www.nakrmnas.cz/nech-me-rust/" target="_blank" rel="noopener noreferrer" class="inline-link">https://www.nakrmnas.cz/nech-me-rust/</a></p>
+                    
                     <h3>Click & Feed</h3>
-                   <p>Projekt Click and Feed podporuje řadu azylových domů a útulků pro zvířata po celé České republice. Díky štědré podpoře společnosti Brit Pet Food funguje tento systém efektivně a transparentně. Princip je založen na virtuálním plnění misek prostřednictvím webové stránky, které se následně transformuje v reálné dodávky granulí a krmiva pro psy a kočky, distribuované potřebným zařízením.
+                    <p>Projekt Click and Feed podporuje řadu azylových domů a útulků pro zvířata po celé České republice. Díky štědré podpoře společnosti Brit Pet Food funguje tento systém efektivně a transparentně. Princip je založen na virtuálním plnění misek prostřednictvím webové stránky, které se následně transformuje v reálné dodávky granulí a krmiva pro psy a kočky, distribuované potřebným zařízením.</p>
+                    <p>Pro zapojení do projektu stačí navštívit webovou stránku https://clickandfeed.cz/. Doporučujeme si například nastavit denní připomenutí nebo ponechat okno prohlížeče otevřené a každý den kliknout na příslušné tlačítko pro naplnění misky.</p> 
+                    <div class="click-feed-button-container">
+                        <a href="https://clickandfeed.cz/" target="_blank" rel="noopener noreferrer" class="btn btn-primary ui-button">Přejít na Click & Feed</a>
+                    </div>
 
-Pro zapojení do projektu stačí navštívit webovou stránku https://clickandfeed.cz/. Doporučujeme si například nastavit denní připomenutí nebo ponechat okno prohlížeče otevřené a každý den kliknout na příslušné tlačítko pro naplnění misky.</p> 
                     <h3>Dobrovolnická pomoc</h3>
                     <p>Pokud máte čas a chuť pomoci, rádi uvítáme vaši dobrovolnickou pomoc přímo na statku. Potřebujeme pomoc s péčí o zvířata, údržbou zahrad, stavitelstvím a dalšími aktivitami. Pokud vás zajímá dobrovolnictví, kontaktujte nás na <a href="mailto:nechmerust@gmail.com" class="inline-link">nechmerust@gmail.com</a>.</p>
                     
@@ -187,8 +228,7 @@ Pro zapojení do projektu stačí navštívit webovou stránku https://clickandf
         </div>
     </footer>
 
-  <!-- TENTO BLOK CSS A JS BUDE NA KONCI KAŽDÉHO HTML SOUBORU -->
-<style>
+  <style>
     :root {
         --color-primary: #1fb67c;
         --color-primary-rgb: 31, 182, 124;
@@ -542,11 +582,11 @@ Pro zapojení do projektu stačí navštívit webovou stránku https://clickandf
     .content-wrapper ul li::marker { color: var(--color-primary); }
     .content-wrapper ul li strong { color: var(--text-type-900); }
 
-    .content-wrapper img {
+    .content-wrapper img { /* Výchozí styl pro obrázky v obsahu, pokud nemají specifickou třídu */
         max-width: 100%;
         height: auto;
         border-radius: 0.75rem;
-        margin: 2rem auto; /* Centrování obrázku pokud je blokový */
+        margin: 2rem auto; 
         display: block;
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
@@ -664,6 +704,10 @@ Pro zapojení do projektu stačí navštívit webovou stránku https://clickandf
         .page-content-section h1:first-child { font-size: clamp(1.8rem, 6vw, 2.5rem); }
         .content-wrapper h2 { font-size: 1.5rem; }
         .content-wrapper h3 { font-size: 1.25rem; }
+        .content-image-small {
+            width: 95%; /* Na mobilu mohou být obrázky širší */
+            max-width: 350px; /* Ale ne příliš velké */
+        }
     }
 
     /* Focus styles for accessibility */
@@ -687,7 +731,7 @@ Pro zapojení do projektu stačí navštívit webovou stránku https://clickandf
     .keyboard-navigation .social-link:focus, .keyboard-navigation .logo:focus {
         border-radius: 50%; /* Pro kruhové prvky */
     }
-    .keyboard-navigation .btn:focus, .keyboard-navigation .ui-button:focus {
+    .keyboard-navigation .btn:focus, .keyboard-navigation .ui-button:focus, .keyboard-navigation .read-more-btn:focus {
          border-radius: 0.5rem; /* Pro tlačítka */
     }
 </style>
@@ -701,13 +745,11 @@ Pro zapojení do projektu stačí navštívit webovou stránku https://clickandf
 
         function openMenu() {
             lastFocusedElement = document.activeElement;
-            const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
-            mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+            mobileMenuBtn.setAttribute('aria-expanded', 'true'); // Corrected: set to true when opening
             mobileMenu.classList.add('active');
             mobileMenu.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden'; // Zabraňuje skrolování stránky pod menu
+            document.body.style.overflow = 'hidden'; 
             
-            // Focus first focusable element in menu
             const focusableElements = mobileMenu.querySelectorAll('a[href], button:not([disabled])');
             if (focusableElements.length > 0) {
                 focusableElements[0].focus();
@@ -718,7 +760,7 @@ Pro zapojení do projektu stačí navštívit webovou stránku https://clickandf
             mobileMenuBtn.setAttribute('aria-expanded', 'false');
             mobileMenu.classList.remove('active');
             mobileMenu.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = ''; // Povolí zpět skrolování
+            document.body.style.overflow = ''; 
             if (lastFocusedElement) {
                 lastFocusedElement.focus();
             }
@@ -750,18 +792,17 @@ Pro zapojení do projektu stačí navštívit webovou stránku https://clickandf
             if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('active')) {
                 closeMenu();
             }
-            // Trap focus inside mobile menu
             if (e.key === 'Tab' && mobileMenu && mobileMenu.classList.contains('active')) {
                 const focusableElements = Array.from(mobileMenu.querySelectorAll('a[href], button:not([disabled])'));
                 const firstElement = focusableElements[0];
                 const lastElement = focusableElements[focusableElements.length - 1];
 
-                if (e.shiftKey) { // Shift + Tab
+                if (e.shiftKey) { 
                     if (document.activeElement === firstElement) {
                         lastElement.focus();
                         e.preventDefault();
                     }
-                } else { // Tab
+                } else { 
                     if (document.activeElement === lastElement) {
                         firstElement.focus();
                         e.preventDefault();
@@ -770,7 +811,6 @@ Pro zapojení do projektu stačí navštívit webovou stránku https://clickandf
             }
         });
 
-        // Smooth scrolling for anchor links (if any on page that are not nav related)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const targetId = this.getAttribute('href');
@@ -783,14 +823,13 @@ Pro zapojení do projektu stačí navštívit webovou stránku https://clickandf
                             block: 'start'
                         });
                         if (mobileMenu && mobileMenu.classList.contains('active')) {
-                           closeMenu(); // Close menu if link is clicked from mobile menu
+                           closeMenu(); 
                         }
                     }
                 }
             });
         });
 
-        // Add focus styles for keyboard navigation
         let isKeyboardNavigation = false;
         function handleKeydown(e) {
             if (e.key === 'Tab') {
@@ -809,31 +848,64 @@ Pro zapojení do projektu stačí navštívit webovou stránku https://clickandf
         document.addEventListener('keydown', handleKeydown);
         document.addEventListener('mousedown', handleMousedown);
 
-        // Dynamic copyright year
         const currentYearElement = document.getElementById('currentYear');
         if (currentYearElement) {
             currentYearElement.textContent = new Date().getFullYear();
         }
 
-        // Lazy load images (native first, fallback if needed)
         if ('loading' in HTMLImageElement.prototype) {
             const images = document.querySelectorAll('img[loading="lazy"]');
             images.forEach(img => {
-                // Optional: if src is not set but data-src is, move data-src to src
-                // This is useful if you want to prevent initial load attempt completely
                 if (img.dataset.src && !img.src) {
                     img.src = img.dataset.src;
                 }
             });
         } else {
-            // Fallback for browsers that don't support native lazy loading
             const script = document.createElement('script');
             script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
             script.integrity = 'sha512-q583ppKrCRc7N5O0H2MySQL4TNuPpLXTcOk1WU4oOFFSmQpgISCqPlwwBT1DFsqrA8DVJnlP2GreqRDbrl1A6Q==';
             script.crossOrigin = 'anonymous';
             document.body.appendChild(script);
         }
+
+        // "Read more" functionality for Virtual Adoption
+        const virtualniAdopceText = document.getElementById('virtualniAdopceText');
+        const readMoreBtnVirtualniAdopce = document.getElementById('readMoreBtnVirtualniAdopce');
+
+        if (virtualniAdopceText && readMoreBtnVirtualniAdopce) {
+            readMoreBtnVirtualniAdopce.addEventListener('click', () => {
+                const isExpanded = virtualniAdopceText.classList.contains('expandable-text-expanded');
+                if (isExpanded) {
+                    virtualniAdopceText.classList.remove('expandable-text-expanded');
+                    virtualniAdopceText.classList.add('expandable-text-collapsed');
+                    readMoreBtnVirtualniAdopce.textContent = 'Číst více';
+                    readMoreBtnVirtualniAdopce.setAttribute('aria-expanded', 'false');
+                } else {
+                    virtualniAdopceText.classList.remove('expandable-text-collapsed');
+                    virtualniAdopceText.classList.add('expandable-text-expanded');
+                    readMoreBtnVirtualniAdopce.textContent = 'Číst méně';
+                    readMoreBtnVirtualniAdopce.setAttribute('aria-expanded', 'true');
+                }
+            });
+        }
+
+        // Convert @mentions to Instagram links
+        const nakrmnasTextElement = document.getElementById('nakrmnasText');
+        if (nakrmnasTextElement) {
+            const originalText = nakrmnasTextElement.innerHTML;
+            const updatedText = originalText.replace(/@([a-zA-Z0-9_.]+)/g, (match, username) => {
+                // Prevent linking if it's part of an email or already a link
+                if (match.includes('@nakrmnas.cz')) { // Specific case for nakrmnas.cz
+                     return `<a href="https://www.nakrmnas.cz/" target="_blank" rel="noopener noreferrer" class="inline-link">@${username}</a>`;
+                }
+                // General instagram link if needed in other places, but here we target nakrmnas.cz specifically
+                // return `<a href="https://instagram.com/${username}" target="_blank" rel="noopener noreferrer" class="inline-link">@${username}</a>`;
+                return match; // Return original match if not the specific case
+            });
+            nakrmnasTextElement.innerHTML = updatedText;
+        }
     });
 </script>  
 </body>
 </html>
+
