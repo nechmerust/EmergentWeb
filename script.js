@@ -4,19 +4,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile menu toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const mobileMenuCloseBtn = document.querySelector('.mobile-menu-close-btn');
-    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileMenu = document.querySelector('#mobile-menu'); // Použití ID selektoru pro přesnější výběr
 
     if (mobileMenuBtn && mobileMenu && mobileMenuCloseBtn) {
         mobileMenuBtn.addEventListener('click', () => {
             const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
-            mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+            mobileMenuBtn.setAttribute('aria-expanded', String(!isExpanded)); // Zajistí, že hodnota je string
             mobileMenu.classList.toggle('active');
             document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : ''; // Zabrání skrolování těla, když je menu otevřené
         });
 
         mobileMenuCloseBtn.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            if (mobileMenuBtn) { // Kontrola, zda mobileMenuBtn existuje
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            }
             document.body.style.overflow = '';
         });
 
@@ -25,19 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileNavLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                if (mobileMenuBtn) { // Kontrola, zda mobileMenuBtn existuje
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                }
                 document.body.style.overflow = '';
             });
         });
     }
 
-    // Close mobile menu when clicking outside - upraveno pro lepší funkčnost
+    // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
         if (mobileMenu && mobileMenu.classList.contains('active')) {
-            // Pokud kliknutí není na tlačítko menu A NENÍ uvnitř samotného menu
+            // Pokud kliknutí není na tlačítko menu (ani jeho obsah) A NENÍ uvnitř samotného menu
             if (mobileMenuBtn && !mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
                 mobileMenu.classList.remove('active');
-                if (mobileMenuBtn) {
+                if (mobileMenuBtn) { // Kontrola, zda mobileMenuBtn existuje
                     mobileMenuBtn.setAttribute('aria-expanded', 'false');
                 }
                 document.body.style.overflow = '';
@@ -63,18 +67,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Lazy loading fallback for older browsers (jednoduchá implementace)
-    // Moderní prohlížeče podporují loading="lazy" nativně, toto je jen základní fallback.
+    // Lazy loading fallback for older browsers
     if ('IntersectionObserver' in window) {
         const lazyImages = document.querySelectorAll('img[loading="lazy"]');
         const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
-                    if (img.dataset.src) { // Pokud je použit data-src atribut
+                    if (img.dataset.src) {
                         img.src = img.dataset.src;
                     }
-                    img.classList.remove('lazy'); // Může být použito pro CSS přechody
+                    img.classList.remove('lazy'); 
                     imageObserver.unobserve(img);
                 }
             });
@@ -84,7 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
             imageObserver.observe(img);
         });
     } else {
-        // Fallback pro velmi staré prohlížeče - načíst vše
         const lazyImages = document.querySelectorAll('img[loading="lazy"]');
         lazyImages.forEach(img => {
             if (img.dataset.src) {
