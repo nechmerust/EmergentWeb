@@ -4,147 +4,734 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nech Mě Růst - Harmonický život v souladu s přírodou</title>
-    <link rel="icon" href="img/logo.png">
     <meta name="description" content="Naší vizí je vytvořit rodový statek jako živý organismus, kde všechny části - lidé, zvířata, rostliny i stavby - koexistují v harmonii a vzájemně se podporují ve svém růstu.">
     
-    <meta property="og:url" content="https://tvoje-domena.cz/index.html">
-    <meta property="og:title" content="Nech Mě Růst - Harmonický život v souladu s přírodou">
-    <meta property="og:site_name" content="Nech Mě Růst">
-    <meta property="og:type" content="website">
-    <meta property="og:description" content="Naší vizí je vytvořit rodový statek jako živý organismus, kde všechny části koexistují v harmonii.">
-    <meta property="og:image" content="https://tvoje-domena.cz/img/hero-image.jpg">
-    <meta property="og:image:alt" content="Tvoříme prostor pro růst duše, srdce i přírody">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Nech Mě Růst - Harmonický život v souladu s přírodou">
-    <meta name="twitter:description" content="Naší vizí je vytvořit rodový statek jako živý organismus, kde všechny části koexistují v harmonii.">
-    <meta name="twitter:image" content="https://tvoje-domena.cz/img/hero-image.jpg">
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Nech Mě Růst",
-        "url": "https://tvoje-domena.cz",
-        "logo": "https://tvoje-domena.cz/img/logo.png",
-        "description": "Nezisková organizace s vizí tvorby rodového statku v harmonii s přírodou",
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "email": "info@nechmerust.cz",
-            "contactType": "customer service"
-        },
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Vlkaneč",
-            "addressCountry": "CZ"
-        }
-    }
-    </script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@400;600;700;900&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@400;600;700;900&display=swap"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@400;600;700;900&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --color-primary: #1fb67c;
+            --color-primary-rgb: 31, 182, 124;
+            --color-primary-darker: #1a9f6b;
+            --color-secondary: #545454;
+            --color-secondary-rgb: 84, 84, 84;
+            --font-sans: 'Open Sans', sans-serif;
+            --font-serif: 'Raleway', serif;
+            --text-type-950: #1a1a1a;
+            --text-type-900: #2d2d2d;
+            --text-type-800: #424242;
+            --text-type-500: #7b7b7b;
+            --background-light-green: #f0fdf4;
+            --gradient-start: rgba(220, 240, 230, 0.9);
+            --gradient-end: rgba(200, 230, 210, 0.9);
+            --hero-gradient-primary: rgba(31, 182, 124, 0.65);
+            --hero-gradient-secondary: rgba(60, 179, 113, 0.45);
+            --section-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--text-type-900);
+            background-color: var(--background-light-green);
+            background-image: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
+            text-decoration: none;
+            color: var(--text-type-950);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            margin-left: auto;
+        }
+
+        .nav-link {
+            color: var(--text-type-800);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--color-primary);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -0.25rem;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: var(--color-primary);
+            border-radius: 2px;
+        }
+
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            color: var(--text-type-900);
+            z-index: 1002;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            padding: 6rem 1.5rem 2rem;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            transform: translateX(0);
+        }
+
+        .mobile-menu .nav-link {
+            font-size: 1.25rem;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .mobile-menu-close-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            color: var(--text-type-900);
+        }
+
+        /* Page sections */
+        .page-section {
+            display: none;
+            padding: 8rem 0 4rem;
+            min-height: 100vh;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 10rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -12rem;
+            left: calc(50% - 15rem);
+            width: 40rem;
+            height: 30rem;
+            background: linear-gradient(45deg, var(--hero-gradient-primary), var(--hero-gradient-secondary));
+            border-radius: 50%;
+            filter: blur(70px);
+            z-index: -1;
+            transform: rotate(25deg) scale(1.1);
+            opacity: 0.8;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.8rem);
+            font-weight: 900;
+            color: var(--text-type-950);
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+        }
+
+        .hero h2 {
+            font-size: clamp(1.1rem, 3vw, 1.35rem);
+            color: var(--text-type-800);
+            margin-bottom: 2.5rem;
+            font-family: var(--font-serif);
+            font-weight: 400;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.25rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem 1.8rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            font-size: 1.05rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-primary-darker);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(var(--color-primary-rgb), 0.3);
+        }
+
+        .hero-image {
+            max-width: 1152px;
+            margin: 0 auto;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* Content sections */
+        .content-section {
+            background-color: var(--section-bg);
+            border-radius: 1rem;
+            padding: 3rem;
+            margin: 2rem auto;
+            max-width: 1000px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .content-section h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--text-type-950);
+            margin-bottom: 2rem;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin: 2rem 0 1rem;
+        }
+
+        .content-section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-type-900);
+            margin: 1.5rem 0 1rem;
+        }
+
+        .content-section p, .content-section li {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-type-800);
+            margin-bottom: 1.25rem;
+        }
+
+        .content-section ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .content-section li::marker {
+            color: var(--color-primary);
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.1), rgba(var(--color-primary-rgb), 0.05));
+            border-left: 4px solid var(--color-primary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding: 4rem 0;
+            background-color: rgba(245, 250, 247, 0.8);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            text-align: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .footer-info {
+            margin-bottom: 2rem;
+            color: var(--text-type-800);
+        }
+
+        .footer-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-info a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-info a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            color: var(--text-type-500);
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .social-link:hover {
+            color: var(--color-primary);
+            background-color: rgba(var(--color-primary-rgb), 0.1);
+            transform: scale(1.1);
+        }
+
+        .social-link svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: var(--text-type-500);
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding-top: 8rem;
+            }
+
+            .page-section {
+                padding-top: 6rem;
+            }
+
+            .content-section {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .grid {
+                gap: 1.5rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Focus styles */
+        .nav-link:focus,
+        .btn:focus,
+        .social-link:focus,
+        .mobile-menu-btn:focus {
+            outline: 3px solid var(--color-primary);
+            outline-offset: 2px;
+            border-radius: 3px;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <nav class="nav" role="navigation" aria-label="Hlavní navigace">
-                <a href="index.html" class="logo" aria-label="Domovská stránka Nech Mě Růst">
-                    <img src="img/logo.png" alt="Nech Mě Růst logo">
-                    <span class="logo-text sr-only">Nech Mě Růst</span>
+            <nav class="nav">
+                <a href="#" class="logo" data-page="home">
+                    <span class="logo-text">🌱 Nech Mě Růst</span>
                 </a>
                 
                 <div class="nav-links">
-                    <a href="index.html" class="nav-link active">Úvod</a>
-                    <a href="about-us.html" class="nav-link">O Nás</a>
-                    <a href="how-to-support.html" class="nav-link">Jak nás podpořit</a>
-                    <a href="products.html" class="nav-link">Produkty</a>
-                    <a href="animals.html" class="nav-link">Zvířecí obyvatelé</a>
+                    <a href="#" class="nav-link active" data-page="home">Domů</a>
+                    <a href="#" class="nav-link" data-page="about">O nás</a>
+                    <a href="#" class="nav-link" data-page="support">Podpořte nás</a>
+                    <a href="#" class="nav-link" data-page="products">Produkty</a>
+                    <a href="#" class="nav-link" data-page="animals">Zvířecí obyvatelé</a>
                 </div>
 
-                <button type="button" class="mobile-menu-btn" aria-label="Otevřít hlavní menu" aria-expanded="false" aria-controls="mobile-menu">
-                    <svg width="24" height="24" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"></path>
+                <button type="button" class="mobile-menu-btn" aria-label="Otevřít menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                 </button>
 
-                <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true">
-                    <button type="button" class="mobile-menu-close-btn" aria-label="Zavřít hlavní menu">
-                        <svg width="24" height="24" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                <div class="mobile-menu">
+                    <button type="button" class="mobile-menu-close-btn" aria-label="Zavřít menu">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </button>
-                    <a href="index.html" class="nav-link active">Úvod</a>
-                    <a href="about-us.html" class="nav-link">O Nás</a>
-                    <a href="how-to-support.html" class="nav-link">Jak nás podpořit</a>
-                    <a href="products.html" class="nav-link">Produkty</a>
-                    <a href="animals.html" class="nav-link">Zvířecí obyvatelé</a>
+                    <a href="#" class="nav-link active" data-page="home">Domů</a>
+                    <a href="#" class="nav-link" data-page="about">O nás</a>
+                    <a href="#" class="nav-link" data-page="support">Podpořte nás</a>
+                    <a href="#" class="nav-link" data-page="products">Produkty</a>
+                    <a href="#" class="nav-link" data-page="animals">Zvířecí obyvatelé</a>
                 </div>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="hero">
+        <!-- Domovská stránka -->
+        <section id="home" class="page-section active hero">
             <div class="container">
-                <div class="hero-content">
+                <div class="hero-content fade-in">
                     <h1>Tvoříme prostor pro růst duše, srdce i přírody</h1>
                     <h2>Nech Mě Růst z.s. je nezisková organizace s vizí tvorby rodového statku, kde žijeme v harmonii s přírodou, zvířaty i sebou navzájem.</h2>
                     
                     <div class="hero-buttons">
-                        <a href="about-us.html" class="btn btn-primary">O nás</a>
-                        <a href="how-to-support.html" class="btn btn-primary">Jak nás podpořit?</a>
+                        <a href="#" class="btn btn-primary" data-page="about">Naše vize</a>
+                        <a href="#" class="btn btn-primary" data-page="support">Jak nás podpořit</a>
                     </div>
 
                     <div class="hero-image">
-                        <img src="img/hero-image.jpg" alt="Harmonický život v souladu s přírodou - rodový statek Nech Mě Růst" loading="lazy" width="1152" height="auto">
+                        <svg width="1152" height="400" viewBox="0 0 1152 400" style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-radius: 1.5rem;">
+                            <rect width="100%" height="100%" fill="url(#hero-pattern)"/>
+                            <defs>
+                                <pattern id="hero-pattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+                                    <circle cx="25" cy="25" r="2" fill="#1fb67c" opacity="0.1"/>
+                                </pattern>
+                            </defs>
+                            <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="#1fb67c" font-size="36" font-weight="bold">
+                                🌱 Harmonický život s přírodou 🌿
+                            </text>
+                        </svg>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-info">
-                <p><a href="mailto:info@nechmerust.cz">info@nechmerust.cz</a></p>
-                <p>IČ: 19602529</p>
-                <p>Vlkaneč, Česká Republika</p>
-            </div>
-            
-            <div class="footer-links">
-                <a href="https://linktr.ee/nechmerust?utm_source=linktree_profile_share" target="_blank" rel="noopener noreferrer">LinkTree</a>
-            </div>
-            
-            <div class="footer-image">
-                <img src="img/footer-image.png" alt="Certifikát či logo partnera" loading="lazy" width="64" height="48">
-            </div>
-            
-            <div class="social-links">
-                <a href="https://www.facebook.com/share/1AkbXrhiRC/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook Nech Mě Růst">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02"></path>
-                    </svg>
-                </a>
-                <a href="https://www.instagram.com/nech_me_rust?igsh=azM4ZTZwOHJ5MnNl" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram Nech Mě Růst">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"></path>
-                    </svg>
-                </a>
-            </div>
-            
-            <p class="copyright">© <span id="currentYear">2024</span> Nech Mě Růst z.s. Všechna práva vyhrazena.</p>
-        </div>
-    </footer>
+        <!-- O nás -->
+        <section id="about" class="page-section">
+            <div class="container">
+                <div class="content-section fade-in">
+                    <h1>O nás</h1>
+                    
+                    <div class="highlight-box">
+                        <h2>Naše vize</h2>
+                        <p>Vytvořit rodový statek jako živý organismus, kde všechny části - lidé, zvířata, rostliny i stavby - koexistují v harmonii a vzájemně se podporují ve svém růstu.</p>
+                    </div>
 
-    <script src="script.js"></script>
-    <script>
-        // Dynamické nastavení aktuálního roku v patičce
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-    </script>
-</body>
-</html>
+                    <h2>Kdo jsme</h2>
+                    <p>Jsme skupinka nadšenců, kteří věří v sílu přírodních cyklů a harmonického soužití. Naše nezisková organizace Nech Mě Růst z.s. vznikla z potřeby vytvořit prostor, kde může každý - ať už člověk, zvíře nebo rostlina - růst svým vlastním tempem v laskavém a podporujícím prostředí.</p>
 
+                    <h2>Naše hodnoty</h2>
+                    <div class="grid grid-2">
+                        <div class="card">
+                            <h3>🌱 Udržitelnost</h3>
+                            <p>Věříme v principy permakultury a udržitelného hospodaření, které respektují přirozené cykly přírody.</p>
+                        </div>
+                        <div class="card">
+                            <h3>❤️ Empatie</h3>
+                            <p>Přistupujeme k sobě navzájem i ke všem živým bytostem s láskou, porozuměním a respektem.</p>
+                        </div>
+                        <div class="card">
+                            <h3>🤝 Komunita</h3>
+                            <p>Budujeme silnou komunitu lidí, kteří se vzájemně podporují v osobním i duchovním růstu.</p>
+                        </div>
+                        <div class="card">
+                            <h3>🌿 Přirozenost</h3>
+                            <p>Hledáme způsoby života, které jsou v souladu s přírodními zákony a rytmy.</p>
+                        </div>
+                    </div>
+
+                    <h2>Naše cíle</h2>
+                    <ul>
+                        <li>Vybudování soběstačného rodového statku s ekologickým hospodařením</li>
+                        <li>Vytvoření vzorového projektu udržitelného života v souladu s přírodou</li>
+                        <li>Edukace veřejnosti o principech permakultury a udržitelnosti</li>
+                        <li>Poskytování prostoru pro osobní rozvoj a duchovní růst</li>
+                        <li>Ochrana a podpora místní biodiverzity</li>
+                        <li>Budování komunity založené na vzájemné podpoře a spolupráci</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <h3>Místo našeho působení</h3>
+                        <p>Naše aktivity se soustředí ve Vlkančí, kde postupně budujeme náš rodový statek. Toto místo jsme si vybrali pro jeho krásnou přírodu a potenciál pro vytvoření harmonického prostředí pro život v souladu s přírodními cykly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Podpořte nás -->
+        <section id="support" class="page-section">
+            <div class="container">
+                <div class="content-section fade-in">
+                    <h1>Jak nás můžete podpořit</h1>
+                    
+                    <p>Vaše podpora nám pomáhá realizovat vizi harmonického života v souladu s přírodou. Existuje mnoho způsobů, jak se můžete zapojit do našeho projektu.</p>
+
+                    <h2>Způsoby podpory</h2>
+                    
+                    <div class="grid grid-2">
+                        <div class="card">
+                            <h3>💰 Finanční podpora</h3>
+                            <p>Každý příspěvek nám pomáhá pokrýt náklady na budování infrastruktury, péči o zvířata a rozvoj projektů.</p>
+                            <ul>
+                                <li>Jednorázové dary</li>
+                                <li>Pravidelné měsíční příspěvky</li>
+                                <li>Adopce konkrétního zvířete</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>🛠️ Praktická pomoc</h3>
+                            <p>Vítáme dobrovolníky, kteří chtějí přiložit ruku k dílu při budování našeho rodového statku.</p>
+                            <ul>
+                                <li>Práce na stavbách a opravách</li>
+                                <li>Zahradničení a péče o rostliny</li>
+                                <li>Pomoc s péčí o zvířata</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>🧠 Sdílení znalostí</h3>
+                            <p>Pokud máte odborné znalosti v oblastech, které potřebujeme, budeme rádi za vaše rady a vedení.</p>
+                            <ul>
+                                <li>Permakulturnní navrhování</li>
+                                <li>Přírodní stavitelství</li>
+                                <li>Veterinární péče</li>
+                                <li>Marketing a komunikace</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>📢 Šíření povědomí</h3>
+                            <p>Pomozte nám oslovit více lidí, kteří sdílejí naše hodnoty a vizi.</p>
+                            <ul>
+                                <li>Sdílení na sociálních sítích</li>
+                                <li>Doporučení přátelům a rodině</li>
+                                <li>Účast na našich akcích</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h2>Transparentnost</h2>
+                        <p>Věříme v otevřenou komunikaci o tom, jak vaše příspěvky využíváme. Pravidelně informujeme o našich aktivitách a pokroku v projektech prostřednictvím našich sociálních sítí a newsletteru.</p>
+                    </div>
+
+                    <h2>Kontakt pro podporovatele</h2>
+                    <p>Pokud máte zájem nás podpořit nebo se chcete dozvědět více o konkrétních možnostech zapojení, neváhejte nás kontaktovat:</p>
+                    
+                    <div class="card">
+                        <h3>📧 Kontaktní údaje</h3>
+                        <p><strong>Email:</strong> <a href="mailto:info@nechmerust.cz">info@nechmerust.cz</a></p>
+                        <p><strong>IČ:</strong> 19602529</p>
+                        <p><strong>Sídlo:</strong> Vlkaneč, Česká Republika</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Produkty -->
+        <section id="products" class="page-section">
+            <div class="container">
+                <div class="content-section fade-in">
+                    <h1>Naše produkty</h1>
+                    
+                    <p>V rámci našeho rodového statku vytváříme různé produkty, které odrážejí naše hodnoty udržitelnosti a kvalitního zpracování. Veškerý výtěžek z prodeje reinvestujeme zpět do rozvoje projektu.</p>
+
+                    <div class="grid grid-3">
+                        <div class="card">
+                            <h3>🥚 Čerstvá vejce</h3>
+                            <p>Vejce od našich šťastných slepic, které se volně pohybují po statku a mají přirozený chov bez chemie.</p>
+                            <ul>
+                                <li>Volný výběh po celý rok</li>
+                                <li>Přírodní výživa</li>
+                                <li>Čerstvost garantována</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>🥛 Kozí produkty</h3>
+                            <p>Čerstvé mléko a sýry od našich koz, které se pasou na přírodních pastvinách.</p>
+                            <ul>
+                                <li>Čerstvé kozí mléko</li>
+                                <li>Domácí kozí sýry</li>
+                                <li>Vysoká kvalita a čistota</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>🌿 Bylinky a čaje</h3>
+                            <p>Pěstujeme a sušíme vlastní bylinky pro přípravu léčivých čajů a koření.</p>
+                            <ul>
+                                <li>Organické pěstování</li>
+                                <li>Tradiční sušení</li>
+                                <li>Léčivé vlastnosti</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>🥕
