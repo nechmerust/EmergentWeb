@@ -61,6 +61,34 @@
             position: relative;
             transition: max-height 0.5s ease-out;
         }
+        /* === NOVÉ/UPRAVENÉ STYLY PRO TEXT V ROZBALOVACÍCH SEKCÍCH === */
+        .expandable-text p,
+        .expandable-text ul li { /* Cílíme na odstavce a položky seznamu uvnitř rozbalovacího textu */
+            font-size: 1rem; /* Explicitní nastavení velikosti písma, aby odpovídalo standardnímu textu (většinou 16px) */
+            line-height: 1.6; /* Explicitní nastavení výšky řádku, konzistentní s body */
+            color: var(--text-type-800); /* Sjednocení barvy textu s .content-wrapper p */
+        }
+        .expandable-text p {
+            margin-bottom: 1.25rem; /* Spodní okraj pro odstavce, konzistentní s .content-wrapper p */
+        }
+        .expandable-text ul {
+            list-style-position: outside;
+            padding-left: 1.5rem; /* Konzistentní s .content-wrapper ul */
+            margin-bottom: 1.25rem; /* Spodní okraj pro seznamy, konzistentní s .content-wrapper ul */
+        }
+        .expandable-text ul li {
+            margin-bottom: 0.6rem; /* Spodní okraj pro položky seznamu, konzistentní s .content-wrapper ul li */
+        }
+        .expandable-text ul li::marker {
+            color: var(--color-primary); /* Konzistentní s .content-wrapper ul li::marker */
+        }
+        .expandable-text p strong,
+        .expandable-text ul li strong { /* Stylování pro tučný text */
+            color: var(--text-type-900); /* Tmavší barva pro zvýraznění, konzistentní s jinými strong elementy */
+            font-weight: 700; /* Standardní tučnost */
+        }
+        /* === KONEC NOVÝCH/UPRAVENÝCH STYLŮ === */
+
         .expandable-text-collapsed {
             max-height: 150px; /* Počáteční výška, zobrazí cca 5-6 řádků */
         }
@@ -83,10 +111,12 @@
         .read-more-btn:hover {
             background-color: #148a60; /* Tmavší primární barva */
         }
-        .click-feed-button-container {
-            text-align: center; /* Centrování tlačítka */
-            margin-top: 1rem; /* Odsazení shora */
-            margin-bottom: 1.5rem; /* Odsazení zdola */
+        .click-feed-button-container,
+        .dobrodruzstvi-button-container,
+        .darujme-button-container { 
+            text-align: center; 
+            margin-top: 1rem; 
+            margin-bottom: 1.5rem; 
         }
     </style>
 </head>
@@ -138,16 +168,15 @@
                     
                     <h3>Finanční příspěvek</h3>
                     <p>Přímý finanční dar je pro nás tou nejúčinnější formou podpory. Využijeme jej především na nákup krmiva pro zvířata, veterinární péči a rozvoj přírodního stavitelství. Číslo našeho transparentního účtu je: <strong>2002645872 / 2010 (Fio banka)</strong></p>
+                    
                     <h3>Luční dobrodružství</h3>
-
-<p>Objevte s námi krásné zážitky a dobrodružství, která jsou esencí našeho každodenního života. Račte vstoupit a vybírat.</p>
+                    <p>Objevte s námi krásné zážitky a dobrodružství, která jsou esencí našeho každodenního života. Račte vstoupit a vybírat.</p>
                     <div class="dobrodruzstvi-button-container">
-                        
                         <a href="https://www.darujme.cz/projekt/1208884" target="_blank" rel="noopener noreferrer" class="btn btn-primary ui-button">Dobrodružství z Louky</a>
-                        <p> </p>
-                        <div class="darujme-button-container">
-                            
+                    </div>
+                    <div class="darujme-button-container">
                         <a href="https://www.darujme.cz/projekt/1208852" target="_blank" rel="noopener noreferrer" class="btn btn-primary ui-button">Podpořit na darujme.cz</a>
+                    </div>
                     <img src="img/qr.jpg" alt="QR kód pro platbu" loading="lazy" class="content-image-small">
                     <p class="text-sm">Pomáhejte nám růst.</p>
                     
@@ -184,11 +213,11 @@
                     <p>Více informací naleznete zde: <a href="https://www.nakrmnas.cz/nech-me-rust/" target="_blank" rel="noopener noreferrer" class="inline-link">https://www.nakrmnas.cz/nech-me-rust/</a></p>
                     
                     <h3>Click & Feed</h3>
-                            <div id="clickandfeedText" class="expandable-text expandable-text-collapsed">
-                    <p>Projekt Click and Feed podporuje řadu azylových domů a útulků pro zvířata po celé České republice. Díky štědré podpoře společnosti Brit Pet Food funguje tento systém efektivně a transparentně.</p> 
-                                <p>Princip je založen na virtuálním plnění misek prostřednictvím webové stránky, které se následně transformuje v reálné dodávky granulí a krmiva pro psy a kočky, distribuované potřebným zařízením.</p>
-                    <p>Pro zapojení do projektu stačí navštívit webovou stránku https://clickandfeed.cz/. Doporučujeme si například nastavit denní připomenutí nebo ponechat okno prohlížeče otevřené a každý den kliknout na příslušné tlačítko pro naplnění misky.</p> 
-                                </div>
+                    <div id="clickandfeedText" class="expandable-text expandable-text-collapsed">
+                        <p>Projekt Click and Feed podporuje řadu azylových domů a útulků pro zvířata po celé České republice. Díky štědré podpoře společnosti Brit Pet Food funguje tento systém efektivně a transparentně.</p> 
+                        <p>Princip je založen na virtuálním plnění misek prostřednictvím webové stránky, které se následně transformuje v reálné dodávky granulí a krmiva pro psy a kočky, distribuované potřebným zařízením.</p>
+                        <p>Pro zapojení do projektu stačí navštívit webovou stránku https://clickandfeed.cz/. Doporučujeme si například nastavit denní připomenutí nebo ponechat okno prohlížeče otevřené a každý den kliknout na příslušné tlačítko pro naplnění misky.</p> 
+                    </div>
                     <button id="readMoreBtnClickAndFeed" class="read-more-btn" aria-expanded="false" aria-controls="clickandfeedText">Číst více</button>
                     <div class="click-feed-button-container">
                         <a href="https://clickandfeed.cz/" target="_blank" rel="noopener noreferrer" class="btn btn-primary ui-button">Naplň misku zdarma</a>
@@ -248,12 +277,12 @@
         --color-secondary: #545454;
         --color-secondary-rgb: 84, 84, 84;
         --font-sans: 'Open Sans', sans-serif;
-        --font-serif: 'Raleway', serif; /* Raleway se hodí spíše pro nadpisy, Open Sans pro text */
+        --font-serif: 'Raleway', serif; 
         --text-type-950: #1a1a1a;
         --text-type-900: #2d2d2d;
         --text-type-800: #424242;
         --text-type-500: #7b7b7b;
-        --header-height: 5rem; /* Přibližná výška hlavičky */
+        --header-height: 5rem; 
     }
 
     * {
@@ -268,14 +297,14 @@
 
     body {
         font-family: var(--font-sans);
-        line-height: 1.6; /* Zlepšeno pro čitelnost */
+        line-height: 1.6; 
         color: var(--text-type-900);
         background-color: #ffffff;
-        padding-top: 0; /* Výchozí pro homepage */
+        padding-top: 0; 
     }
 
     body:not(.home-page) {
-        padding-top: var(--header-height); /* Prostor pro fixní hlavičku na podstránkách */
+        padding-top: var(--header-height); 
     }
 
     .sr-only {
@@ -302,15 +331,15 @@
     .header {
         left: 0;
         right: 0;
-        z-index: 1000; /* Zvýšeno pro jistotu */
-        padding: 0.75rem 0; /* Mírně zmenšen padding */
+        z-index: 1000; 
+        padding: 0.75rem 0; 
         transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
-    .home-page .header { /* Pouze pro homepage */
+    .home-page .header { 
         position: absolute;
         top: 0;
     }
-    body:not(.home-page) .header { /* Pro všechny ostatní stránky */
+    body:not(.home-page) .header { 
         position: fixed;
         top: 0;
         background-color: rgba(255, 255, 255, 0.97);
@@ -323,7 +352,7 @@
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
-        height: calc(var(--header-height) - 1.5rem); /* Výška nav baru */
+        height: calc(var(--header-height) - 1.5rem); 
     }
 
     .logo {
@@ -335,11 +364,11 @@
     }
 
     .logo img {
-        height: 3.5rem; /* Mírně zmenšeno */
+        height: 3.5rem; 
         width: auto;
     }
 
-    .logo-text { /* Skryto ve výchozím stavu, používáme .sr-only */
+    .logo-text { 
         font-size: 1.875rem;
         font-weight: 700;
         color: var(--text-type-900);
@@ -348,7 +377,7 @@
 
     .nav-links {
         display: flex;
-        gap: 1.8rem; /* Mírně upraveno */
+        gap: 1.8rem; 
         margin-left: 2rem;
     }
 
@@ -356,7 +385,7 @@
         color: var(--text-type-900);
         text-decoration: none;
         font-weight: 600;
-        font-size: 0.9rem; /* Mírně zmenšeno */
+        font-size: 0.9rem; 
         transition: color 0.2s ease;
         position: relative;
         padding: 0.5rem 0;
@@ -374,7 +403,7 @@
     .nav-link.active::after {
         content: '';
         position: absolute;
-        bottom: 0; /* Umístění podtržítka */
+        bottom: 0; 
         left: 0;
         right: 0;
         height: 3px;
@@ -390,22 +419,22 @@
         padding: 0.5rem;
         cursor: pointer;
         color: var(--text-type-900);
-        z-index: 1002; /* Nad mobilním menu */
+        z-index: 1002; 
     }
     .mobile-menu-btn svg { width: 1.75rem; height: 1.75rem; }
 
 
     .mobile-menu {
-        display: none; /* Skryto defaultně */
+        display: none; 
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
         background: white;
-        padding: var(--header-height) 1.5rem 1.5rem; /* Padding shora pro prostor pro close button */
+        padding: var(--header-height) 1.5rem 1.5rem; 
         flex-direction: column;
-        gap: 0.5rem; /* Menší mezery mezi linky */
+        gap: 0.5rem; 
         z-index: 1001;
         overflow-y: auto;
         transform: translateX(100%);
@@ -424,21 +453,21 @@
         cursor: pointer;
         color: var(--text-type-900);
         position: absolute;
-        top: calc((var(--header-height) - 2.75rem) / 2); /* Vertikálně centruje s menu buttonem */
+        top: calc((var(--header-height) - 2.75rem) / 2); 
         right: 1.5rem;
         z-index: 1002;
     }
     .mobile-menu-close-btn svg { width: 1.75rem; height: 1.75rem; }
 
     .mobile-menu .nav-link {
-        font-size: 1.125rem; /* Větší font pro mobily */
+        font-size: 1.125rem; 
         padding: 0.8rem 0;
         border-bottom: 1px solid #e2e8f0;
         width: 100%;
         text-align: left;
     }
     .mobile-menu .nav-link:last-child { border-bottom: none; }
-    .mobile-menu .nav-link.active::after { display: none; } /* Bez podtržítka v mobilním menu */
+    .mobile-menu .nav-link.active::after { display: none; } 
 
 
     /* Hero section (Homepage) */
@@ -446,13 +475,13 @@
         min-height: 100vh;
         display: flex;
         align-items: center;
-        padding: 8rem 0 4rem; /* Větší padding shora kvůli absolutní hlavičce */
+        padding: 8rem 0 4rem; 
         position: relative;
         overflow: hidden;
-        background-color: #f9f9f9; /* Jemné pozadí */
+        background-color: #f9f9f9; 
     }
 
-    .hero::before { /* Dekorativní element */
+    .hero::before { 
         content: '';
         position: absolute;
         top: -10rem;
@@ -470,12 +499,12 @@
         text-align: center;
         max-width: 1200px;
         margin: 0 auto;
-        position: relative; /* Aby byl nad ::before pseudo-elementem */
+        position: relative; 
         z-index: 1;
     }
 
     .hero h1 {
-        font-family: var(--font-serif); /* Raleway pro hlavní nadpis */
+        font-family: var(--font-serif); 
         font-size: clamp(2.5rem, 6vw, 4.5rem);
         font-weight: 900;
         color: var(--text-type-950);
@@ -484,12 +513,12 @@
     }
 
     .hero h2 {
-        font-family: var(--font-sans); /* Open Sans pro podnadpis */
+        font-family: var(--font-sans); 
         font-size: clamp(1.1rem, 3vw, 1.375rem);
         color: var(--text-type-800);
         margin-bottom: 2.5rem;
         font-weight: 400;
-        max-width: 700px; /* Širší pro lepší čitelnost */
+        max-width: 700px; 
         margin-left: auto;
         margin-right: auto;
     }
@@ -502,16 +531,16 @@
         flex-wrap: wrap;
     }
 
-    .btn, .ui-button { /* Sjednocení .btn a .ui-button */
+    .btn, .ui-button { 
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 0.875rem 1.75rem; /* Větší padding */
+        padding: 0.875rem 1.75rem; 
         border-radius: 0.5rem;
-        font-weight: 700; /* Tlustší */
+        font-weight: 700; 
         text-decoration: none;
         cursor: pointer;
-        border: 2px solid transparent; /* Přidán border pro focus styl */
+        border: 2px solid transparent; 
         transition: all 0.2s ease;
         font-size: 1rem;
         line-height: 1.2;
@@ -525,7 +554,7 @@
 
     .btn-primary:hover, .btn-primary:focus,
     .ui-button:hover, .ui-button:focus {
-        background-color: #148a60; /* Tmavší primární */
+        background-color: #148a60; 
         border-color: #148a60;
         color: white;
         transform: translateY(-2px);
@@ -541,9 +570,9 @@
         width: 100%;
         height: auto;
         border-radius: 1.5rem;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); /* Jemnější stín */
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); 
         border: 1px solid rgba(0, 0, 0, 0.05);
-        opacity: 0; /* Pro fadeIn animaci */
+        opacity: 0; 
         animation: fadeIn 0.8s ease-out 0.3s forwards;
     }
 
@@ -553,7 +582,7 @@
     .page-content-section {
         padding: 3rem 0;
     }
-    .page-content-section h1:first-child { /* Hlavní nadpis stránky */
+    .page-content-section h1:first-child { 
         font-family: var(--font-serif);
         font-size: clamp(2rem, 5vw, 3rem);
         font-weight: 700;
@@ -569,7 +598,7 @@
 
     .content-wrapper h2,
     .content-wrapper h3 {
-        font-family: var(--font-serif); /* Raleway pro podnadpisy */
+        font-family: var(--font-serif); 
         color: var(--text-type-950);
         margin-top: 2.5rem;
         margin-bottom: 1rem;
@@ -579,8 +608,10 @@
     .content-wrapper h3 { font-size: 1.375rem; }
 
     .content-wrapper p {
-        margin-bottom: 1.25rem; /* Větší mezera */
+        margin-bottom: 1.25rem; 
         color: var(--text-type-800);
+        /* font-size: 1rem; implicitně z body, pokud není přepsáno */
+        /* line-height: 1.6; implicitně z body, pokud není přepsáno */
     }
 
     .content-wrapper ul {
@@ -591,11 +622,12 @@
     .content-wrapper ul li {
         margin-bottom: 0.6rem;
         color: var(--text-type-800);
+         /* font-size: 1rem; implicitně, pokud není přepsáno */
     }
     .content-wrapper ul li::marker { color: var(--color-primary); }
     .content-wrapper ul li strong { color: var(--text-type-900); }
 
-    .content-wrapper img { /* Výchozí styl pro obrázky v obsahu, pokud nemají specifickou třídu */
+    .content-wrapper img { 
         max-width: 100%;
         height: auto;
         border-radius: 0.75rem;
@@ -604,11 +636,11 @@
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
 
-    .text-sm { /* Pro popisky obrázků */
+    .text-sm { 
         font-size: 0.875rem;
         color: var(--text-type-500);
         text-align: center;
-        margin-top: -1rem; /* Blíže k obrázku */
+        margin-top: -1rem; 
         margin-bottom: 1.5rem;
     }
 
@@ -626,8 +658,8 @@
     /* Footer */
     .footer {
         border-top: 1px solid #e2e8f0;
-        padding: 4rem 0 2rem; /* Více paddingu nahoře */
-        background-color: #f9fafb; /* Jemné pozadí */
+        padding: 4rem 0 2rem; 
+        background-color: #f9fafb; 
     }
 
     .footer-content {
@@ -637,7 +669,7 @@
     .footer-info {
         margin-bottom: 2rem;
         color: var(--text-type-800);
-        font-family: var(--font-sans); /* Open Sans pro patičku */
+        font-family: var(--font-sans); 
     }
     .footer-info p { margin-bottom: 0.5rem; font-size: 0.9rem; }
     .footer-info a { color: var(--color-primary); text-decoration: none; }
@@ -662,7 +694,7 @@
 
     .footer-image { margin-bottom: 2rem; }
     .footer-image img {
-        height: 3.5rem; /* Větší */
+        height: 3.5rem; 
         width: auto;
         border-radius: 0.375rem;
     }
@@ -688,7 +720,7 @@
         .nav-links { display: none; }
         .mobile-menu-btn { display: block; }
 
-        .hero { padding: 6rem 0 3rem; } /* Upraven padding pro mobilní hero */
+        .hero { padding: 6rem 0 3rem; } 
         .hero h1 { font-size: clamp(2rem, 8vw, 2.8rem); }
         .hero h2 { font-size: clamp(1rem, 4vw, 1.125rem); }
 
@@ -699,17 +731,17 @@
         }
         .btn, .ui-button {
             width: 100%;
-            max-width: 320px; /* Omezení šířky tlačítek */
+            max-width: 320px; 
         }
         
         body:not(.home-page) {
-             padding-top: calc(var(--header-height) - 1rem); /* Menší header na mobilu */
+             padding-top: calc(var(--header-height) - 1rem); 
         }
         body:not(.home-page) .header {
              padding: 0.5rem 0;
         }
         .nav {
-            height: calc(var(--header-height) - 2rem); /* Menší výška nav baru na mobilu */
+            height: calc(var(--header-height) - 2rem); 
         }
         .logo img { height: 2.8rem; }
         .mobile-menu-close-btn { top: calc((var(--header-height) - 3.75rem) / 2); }
@@ -718,8 +750,8 @@
         .content-wrapper h2 { font-size: 1.5rem; }
         .content-wrapper h3 { font-size: 1.25rem; }
         .content-image-small {
-            width: 95%; /* Na mobilu mohou být obrázky širší */
-            max-width: 350px; /* Ale ne příliš velké */
+            width: 95%; 
+            max-width: 350px; 
         }
     }
 
@@ -734,18 +766,18 @@
     .keyboard-navigation input:focus,
     .keyboard-navigation textarea:focus,
     .keyboard-navigation select:focus,
-    .keyboard-navigation a:focus:not(.social-link):not(.logo), /* Obecné odkazy, ale ne ty již stylované */
+    .keyboard-navigation a:focus:not(.social-link):not(.logo), 
     .keyboard-navigation button:focus {
         outline: 3px solid var(--color-primary) !important;
         outline-offset: 2px;
         box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.4);
-        border-radius: 2px; /* Pro textové odkazy */
+        border-radius: 2px; 
     }
     .keyboard-navigation .social-link:focus, .keyboard-navigation .logo:focus {
-        border-radius: 50%; /* Pro kruhové prvky */
+        border-radius: 50%; 
     }
     .keyboard-navigation .btn:focus, .keyboard-navigation .ui-button:focus, .keyboard-navigation .read-more-btn:focus {
-         border-radius: 0.5rem; /* Pro tlačítka */
+         border-radius: 0.5rem; 
     }
 </style>
 
@@ -758,7 +790,7 @@
 
         function openMenu() {
             lastFocusedElement = document.activeElement;
-            mobileMenuBtn.setAttribute('aria-expanded', 'true'); // Corrected: set to true when opening
+            mobileMenuBtn.setAttribute('aria-expanded', 'true'); 
             mobileMenu.classList.add('active');
             mobileMenu.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden'; 
@@ -881,39 +913,45 @@
             document.body.appendChild(script);
         }
 
-        // "Read more" functionality for Virtual Adoption
-        const virtualniAdopceText = document.getElementById('virtualniAdopceText');
-        const readMoreBtnVirtualniAdopce = document.getElementById('readMoreBtnVirtualniAdopce');
+        // Generic "Read more" functionality
+        function initializeReadMore(textElementId, buttonElementId) {
+            const textElement = document.getElementById(textElementId);
+            const buttonElement = document.getElementById(buttonElementId);
 
-        if (virtualniAdopceText && readMoreBtnVirtualniAdopce) {
-            readMoreBtnVirtualniAdopce.addEventListener('click', () => {
-                const isExpanded = virtualniAdopceText.classList.contains('expandable-text-expanded');
-                if (isExpanded) {
-                    virtualniAdopceText.classList.remove('expandable-text-expanded');
-                    virtualniAdopceText.classList.add('expandable-text-collapsed');
-                    readMoreBtnVirtualniAdopce.textContent = 'Číst více';
-                    readMoreBtnVirtualniAdopce.setAttribute('aria-expanded', 'false');
-                } else {
-                    virtualniAdopceText.classList.remove('expandable-text-collapsed');
-                    virtualniAdopceText.classList.add('expandable-text-expanded');
-                    readMoreBtnVirtualniAdopce.textContent = 'Číst méně';
-                    readMoreBtnVirtualniAdopce.setAttribute('aria-expanded', 'true');
-                }
-            });
+            if (textElement && buttonElement) {
+                buttonElement.addEventListener('click', () => {
+                    const isExpanded = textElement.classList.contains('expandable-text-expanded');
+                    if (isExpanded) {
+                        textElement.classList.remove('expandable-text-expanded');
+                        textElement.classList.add('expandable-text-collapsed');
+                        buttonElement.textContent = 'Číst více';
+                        buttonElement.setAttribute('aria-expanded', 'false');
+                    } else {
+                        textElement.classList.remove('expandable-text-collapsed');
+                        textElement.classList.add('expandable-text-expanded');
+                        buttonElement.textContent = 'Číst méně';
+                        buttonElement.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            }
         }
+
+        // Initialize for Virtual Adoption
+        initializeReadMore('virtualniAdopceText', 'readMoreBtnVirtualniAdopce');
+        
+        // Initialize for Click & Feed
+        initializeReadMore('clickandfeedText', 'readMoreBtnClickAndFeed');
+
 
         // Convert @mentions to Instagram links
         const nakrmnasTextElement = document.getElementById('nakrmnasText');
         if (nakrmnasTextElement) {
             const originalText = nakrmnasTextElement.innerHTML;
             const updatedText = originalText.replace(/@([a-zA-Z0-9_.]+)/g, (match, username) => {
-                // Prevent linking if it's part of an email or already a link
-                if (match.includes('@nakrmnas.cz')) { // Specific case for nakrmnas.cz
+                if (match.includes('@nakrmnas.cz')) { 
                      return `<a href="https://www.nakrmnas.cz/" target="_blank" rel="noopener noreferrer" class="inline-link">@${username}</a>`;
                 }
-                // General instagram link if needed in other places, but here we target nakrmnas.cz specifically
-                // return `<a href="https://instagram.com/${username}" target="_blank" rel="noopener noreferrer" class="inline-link">@${username}</a>`;
-                return match; // Return original match if not the specific case
+                return match; 
             });
             nakrmnasTextElement.innerHTML = updatedText;
         }
