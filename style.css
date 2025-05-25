@@ -161,7 +161,7 @@ body {
     bottom: 0;
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
-    padding: 6rem 1.5rem 2rem; /* Více paddingu nahoře pro zavírací tlačítko */
+    padding: 7rem 1.5rem 2rem; /* Zvětšený horní padding pro odsazení od horního okraje */
     flex-direction: column;
     gap: 1.5rem; /* Větší mezery */
     align-items: center; /* Centrování položek */
@@ -180,7 +180,7 @@ body {
 
 .mobile-menu-close-btn { /* Styl pro zavírací tlačítko */
     position: absolute;
-    top: 1.5rem;
+    top: 2rem; /* Posunuto níže kvůli většímu paddingu menu */
     right: 1.5rem;
     background: none;
     border: none;
