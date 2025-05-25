@@ -161,17 +161,17 @@ body {
     bottom: 0;
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
-    padding: 7rem 1.5rem 2rem; /* Zvětšený horní padding pro odsazení od horního okraje */
+    padding: 6rem 1.5rem 1.5rem; /* Upravený padding pro více místa pro odkazy */
     flex-direction: column;
-    gap: 1.5rem; /* Větší mezery */
+    gap: 1rem; /* Snížená mezera mezi odkazy */
     align-items: center; /* Centrování položek */
     justify-content: center; /* Centrování položek */
     z-index: 1000;
-    overflow-y: auto; /* Pro případ více položek */
+    overflow-y: auto; /* Ponecháno pro jistotu, ale cílem je, aby nebylo potřeba */
 }
 .mobile-menu .nav-link {
-    font-size: 1.25rem; /* Větší písmo v mobilním menu */
-    padding: 0.75rem 0;
+    font-size: 1.15rem; /* Mírně menší písmo v mobilním menu */
+    padding: 0.6rem 0; /* Snížený vertikální padding odkazu */
 }
 
 .mobile-menu.active {
@@ -180,7 +180,7 @@ body {
 
 .mobile-menu-close-btn { /* Styl pro zavírací tlačítko */
     position: absolute;
-    top: 2rem; /* Posunuto níže kvůli většímu paddingu menu */
+    top: 1.5rem; /* Upravena pozice kvůli změně paddingu menu */
     right: 1.5rem;
     background: none;
     border: none;
