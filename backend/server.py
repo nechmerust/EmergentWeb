@@ -199,16 +199,25 @@ async def get_event(event_id: str):
 async def register_for_event(event_id: str, registration: EventRegistrationRequest):
     """Register for an event"""
     try:
-        # Check if event exists
-        event = await get_event(event_id)
-        
         # Check if already registered
         if await check_existing_registration(event_id, registration.email):
             raise HTTPException(status_code=400, detail="Email already registered for this event")
         
+        # Get mock event data to check limits
+        mock_events = {
+            "event-1": {"max_attendees": 20, "title": "Setkání s přáteli statku"},
+            "event-2": {"max_attendees": 15, "title": "Workshop: Péče o zvířata"},
+            "event-3": {"max_attendees": 25, "title": "Dobrovolnický den"}
+        }
+        
+        if event_id not in mock_events:
+            raise HTTPException(status_code=404, detail="Event not found")
+            
+        event_data = mock_events[event_id]
+        
         # Check if event is full
         registrations = await get_event_registrations(event_id)
-        if event.max_attendees and len(registrations) >= event.max_attendees:
+        if event_data["max_attendees"] and len(registrations) >= event_data["max_attendees"]:
             raise HTTPException(status_code=400, detail="Event is full")
         
         # Create registration
@@ -221,7 +230,7 @@ async def register_for_event(event_id: str, registration: EventRegistrationReque
         return {
             "message": "Registration successful",
             "registration_id": new_registration["_id"],
-            "event_title": event.title
+            "event_title": event_data["title"]
         }
         
     except HTTPException:
